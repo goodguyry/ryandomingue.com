@@ -1,0 +1,212 @@
+---
+# Rouge syntax highlighting styles
+# Based on Specials Board - https://github.com/lamotta/specialsboard
+---
+
+$orange: rgb(214, 135, 50);
+$green: rgb(180, 199, 90);
+$blue: rgb(123, 170, 190);
+$gray: rgb(121, 121, 121);
+$red: rgb(239, 93, 50);
+$white: rgb(255, 255, 255);
+$yellow: rgb(255, 212, 117);
+$purple: rgb(177, 115, 113);
+
+// Code caption
+.highlight + p {
+  text-align: right;
+  font-size: 0.75em;
+  margin-bottom: inherit;
+}
+
+// Comments:
+.c, .cm, .cp, .c1, .cs { color: $gray; }
+
+// HTML:
+.language-html {
+  // base
+  color: $white;
+  // element
+  .nt { color: $yellow; }
+  // attribute
+  .na { color: $orange; }
+  // entity
+  .ni { color: $blue; }
+  // string
+  .s { color: $green; }
+}
+
+// CSS:
+.language-css,
+.language-scss {
+  // base
+  color: $white;
+  // selector
+  .nt { color: $green; }
+  // class
+  .nc { color: $green; }
+  // rouge: property
+  .n, .nl, .na { color: $orange; }
+  // rouge: value, prefixed value
+  .nb, .no, .nl + .p + .n, .na + .p + .n { color: $purple; }
+  // scss: variable
+  .nv { color: $blue; }
+  // number/hex
+  .m, .err { color: $blue; }
+  // string
+  .s2, .s1 { color: $green; }
+  // keyword
+  .k { color: $blue; }
+  // operator
+  .o { color: $blue; }
+  // pseudo-element
+  .nd { color: $red; }
+  // punctuation
+  .p { color: $white; }
+}
+
+// Markdown
+.language-md {
+  // base
+  color: $white;
+  // heading
+  .gu { color: $orange; }
+  // link text
+  .nv { color: $green; }
+  // attribute
+  .nn { color: $green; }
+  // link
+  .ss, .sx { color: $blue; }
+}
+
+// YAML
+.language-yml {
+  // base
+  color: $white;
+  // string
+  .s, .s1, .s2 { color: $orange; }
+}
+
+.language-php {
+  // base
+  color: $white;
+  // block comment
+  .sd { color: $gray; }
+  // opening/close brackets
+  .cp { color: $white; }
+  // builtin
+  .nb { color: $orange; }
+  // string
+  .s, .s1, .s2 { color: $green; }
+  // keyword
+  .k { color: $red; }
+  // variable
+  .nv { color: $blue; }
+  // name
+  .nx { color: $orange; }
+  // nameed function
+  .nf { color: $purple; }
+  // number
+  .mi { color: $blue; }
+  // operator
+  .o { color: $white; }
+  // keyword constant
+  .kc { color: $blue; }
+  // HMTL element
+  .nt { color: $yellow; }
+  //
+  .na { color: $orange; }
+}
+
+// JavaScript:
+.language-js {
+  color: $white;
+  // keyword.declaration
+  .kd { color: $red; }
+  // variable name
+  .nx { color: $orange; }
+  // builtin
+  .nb { color: $orange; }
+  // method
+  .nx + .p + .nx { color: $purple; }
+  // operator
+  .o { color: $blue; }
+  // string
+  .s2, .s1 { color: $green; }
+  // keyword
+  .k { color: $blue; }
+  // punctuation
+  .p { color: $white; }
+}
+
+/********************************************************
+ * Legend:
+
+          Name.Builtin.Pseudo   .bp
+                      Comment   .c
+               Comment.Single   .c1
+            Comment.Multiline   .cm
+              Comment.Preproc   .cp
+              Comment.Special   .cs
+                        Error   .err
+              Generic.Deleted   .gd
+     Generic.Deleted.Specific   .gd .x
+                 Generic.Emph   .ge
+              Generic.Heading   .gh
+             Generic.Inserted   .gi
+    Generic.Inserted.Specific   .gi .x
+               Generic.Output   .go
+               Generic.Prompt   .gp
+                Generic.Error   .gr
+               Generic.Strong   .gs
+            Generic.Traceback   .gt
+           Generic.Subheading   .gu
+  Literal.Number.Integer.Long   .il
+                      Keyword   .k
+             Keyword.Constant   .kc
+          Keyword.Declaration   .kd
+               Keyword.Pseudo   .kp
+             Keyword.Reserved   .kr
+                 Keyword.Type   .kt
+               Literal.Number   .m
+         Literal.Number.Float   .mf
+           Literal.Number.Hex   .mh
+       Literal.Number.Integer   .mi
+           Literal.Number.Oct   .mo
+               Name.Attribute   .na
+                 Name.Builtin   .nb
+                   Name.Class   .nc
+               Name.Exception   .ne
+                Name.Function   .nf
+                  Name.Entity   .ni
+               Name.Namespace   .nn
+                Name.Constant   .no
+                     Name.Tag   .nt
+                Name.Variable   .nv
+                     Operator   .o
+                Operator.Word   .ow
+               Literal.String   .s
+        Literal.String.Single   .s1
+        Literal.String.Double   .s2
+      Literal.String.Backtick   .sb
+          Literal.String.Char   .sc
+           Literal.String.Doc   .sd
+        Literal.String.Escape   .se
+       Literal.String.Heredoc   .sh
+      Literal.String.Interpol   .si
+         Literal.String.Regex   .sr
+        Literal.String.Symbol   .ss
+         Literal.String.Other   .sx
+          Name.Variable.Class   .vc
+         Name.Variable.Global   .vg
+       Name.Variable.Instance   .vi
+              Text.Whitespace   .w
+
+// pigments: property/value
+.n, .nl, .nb { color: $orange; }
+// pigments: number inside media query
+.nt + .nc, .o + .nt { color: $blue; }
+// pigments: property
+.k { color: $orange; }
+
+********************************************************/

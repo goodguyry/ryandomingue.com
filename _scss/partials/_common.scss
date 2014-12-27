@@ -1,0 +1,309 @@
+/**!
+ * Common base styles styles
+ */
+
+body {
+  width: 100%;
+  font: {
+    family: $base-font-family;
+    size: large;
+    style: normal;
+    weight: normal;
+  }
+  line-height: 1.5;
+  background-color: $theme-base;
+  color: $theme-base-dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  @include responsive(650) {
+    font-size: x-large;
+  }
+}
+
+/*! ---- Headings ---- */
+
+h1, h2, h3, h4, h5 {
+  font: {
+    family: $heading-font-family;
+    weight: bold;
+  }
+}
+
+h1 {
+  // Declared in header.scss
+}
+
+h2,
+.post-title {
+  font-size: 2em;
+  margin-bottom: 0.75em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4, h5 {
+  margin-bottom: 0.25em;
+  font-style: italic;
+}
+h4 {
+  font-size: 1.25em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+/*! ---- Block ---- */
+
+p {
+  margin-bottom: 1.5em;
+}
+
+blockquote {
+  width: 100%;
+  margin-bottom: 1.5em;
+  padding: .5em;
+  border-top: 3px double $theme-decoration-light;
+  border-bottom: 3px double $theme-decoration-light;
+  color: $theme-base-dark;
+  font-size: 1.25em;
+  quotes: none;
+
+  p {
+    margin-bottom: 0.875em;
+  }
+
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  span {
+    text-align: right;
+    font-size: 0.75em;
+    display: block;
+
+    &:before {
+      content: "-";
+      margin-right: 0.25em;
+    }
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    content: none;
+  }
+
+}
+
+button {
+  display: block;
+  font: inherit;
+  font-weight: normal;
+  -webkit-appearance: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin-bottom: 1em;
+
+  color: $theme-main;
+  border: 1px solid;
+  border-radius: 6px;
+  padding: 0.75em;
+  text-align: center;
+  @include transition((color, border-color));
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: $theme-secondary;
+  }
+
+  &:focus {
+    outline-color: $theme-secondary;
+  }
+}
+
+hr {
+  border: none;
+  height: 1px;
+  width: 60%;
+  background-color: $theme-decoration-light;
+  margin-bottom: 2em;
+}
+
+pre {
+  margin-bottom: 0.5em;
+  padding: 1em;
+  position: relative;
+  background-color: #393939;
+}
+
+code {
+  overflow: auto;
+  max-width: 100%;
+  position: relative;
+  line-height: inherit;
+  font: {
+    family: Consolas, Monaco, 'Andale Mono', monospace;
+    size: 0.75em;
+  }
+  white-space: pre;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+
+  pre & {
+    height: 100%;
+    max-height: 20em;
+    display: block;
+    color: rgb(255, 255, 255);
+    -moz-tab-size: 2;
+    -o-tab-size: 2;
+    tab-size: 2;
+  }
+
+  // Inline code
+  :not(pre) > & {
+    color: #393939;
+    display: inline;
+    padding: 0.05em 0.2em;
+    border-radius: 3px;
+    border: 1px solid $theme-decoration-light;
+  }
+}
+
+/*! ---- Inline ---- */
+
+em { font-style: italic; }
+
+strong { font-weight: bold; }
+
+sub, sup { line-height: 0; }
+
+a {
+  color: $theme-main;
+  text-decoration: none;
+
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+kbd {
+  padding: 0.05em 0.2em;
+  font-family: monospace;
+  border: 1px solid $theme-decoration-light;
+  background-color: $theme-highlighter;
+  border-radius: 3px;
+}
+
+cite {
+  font-style: italic;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted $theme-decoration;
+  cursor: help;
+}
+
+.math {
+  font: {
+    family: Consolas, Monaco, 'Andale Mono', monospace;
+    size: 0.875em;
+  }
+}
+
+output {
+  font-weight: bold;
+}
+
+/*! ---- Lists ---- */
+
+ul, ol {
+  margin-bottom: 2em;
+}
+
+  ul {
+    list-style: disc outside none;
+    margin-left: 1em;
+  }
+
+  ol {
+    list-style: decimal outside none;
+    margin-left: 1.5em;
+  }
+
+    ul li,
+    ol li {
+      margin-bottom: .5em;
+    }
+
+// Nested list
+li ul,
+li ol {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  padding-left: 1.5em;
+}
+
+  li ul {
+    list-style-type: circle;
+  }
+
+  li ol {
+    list-style-type: lower-alpha;
+  }
+
+/*! ---- Classes ---- */
+
+.strike {
+  color: $theme-decoration;
+  text-decoration: line-through;
+}
+
+.hidden {
+  @extend %offscreen;
+}
+
+/*! ---- Selections ---- */
+
+::selection {
+  background: $theme-secondary;
+  color: $theme-base;
+}
+
+  ::-moz-selection {
+    background: $theme-secondary;
+    color: $theme-base;
+  }
+
+a::selection,
+a h3::selection {
+  color: $theme-base-dark;
+}
+
+  a::-moz-selection {
+    color: $theme-base-dark;
+  }
+
+img::selection {
+  background: $theme-secondary;
+  color: $theme-base;
+}
+
+  img::-moz-selection {
+    background: $theme-secondary;
+    color: $theme-base;
+  }

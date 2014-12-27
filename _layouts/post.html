@@ -1,0 +1,26 @@
+---
+layout: default
+---
+
+      <header role="banner">
+
+        <h2>{{ site.heading_blog }}</h2>
+        {% include nav.html %}
+
+      </header>
+
+      <main role="main">
+
+        <article>
+
+          <p class="post-meta">
+            <time datetime="{{ page.date | date: "%F %R %Z"}}">{{ page.date | date: "%B %-d, %Y" }}</time>
+          </p>
+
+          <h1 class="post-title">{{ page.title }}</h1>
+
+          {{ content }}
+
+        </article>
+
+      </main>

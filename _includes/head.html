@@ -1,0 +1,110 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <noscript><link href='http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700italic,700' rel='stylesheet' type='text/css'></noscript>
+  <noscript><link href='http://fonts.googleapis.com/css?family=Lato:700,700italic' rel='stylesheet' type='text/css'></noscript>
+
+  <style>{% include critical.min.css %}</style>
+
+<script>
+  /*!
+  loadCSS: load a CSS file asynchronously.
+  [c]2014 @scottjehl, Filament Group, Inc.
+  Licensed MIT
+  */
+  function loadCSS( href, before, media ){
+    "use strict";
+    // Arguments explained:
+    // `href` is the URL for your CSS file.
+    // `before` optionally defines the element we'll use as a reference for injecting our <link>
+    // By default, `before` uses the first <script> element in the page.
+    // However, since the order in which stylesheets are referenced matters, you might need a more specific location in your document.
+    // If so, pass a different reference element to the `before` argument and it'll insert before that instead
+    // note: `insertBefore` is used instead of `appendChild`, for safety re: http://www.paulirish.com/2011/surefire-dom-element-insertion/
+    var ss = window.document.createElement( "link" );
+    var ref = before || window.document.getElementsByTagName( "script" )[ 0 ];
+    var sheets = window.document.styleSheets;
+    ss.rel = "stylesheet";
+    ss.href = href;
+    // temporarily, set media to something non-matching to ensure it'll fetch without blocking render
+    ss.media = "only x";
+    // inject link
+    ref.parentNode.insertBefore( ss, ref );
+    // This function sets the link's media back to `all` so that the stylesheet applies once it loads
+    // It is designed to poll until document.styleSheets includes the new sheet.
+    function toggleMedia(){
+      var defined;
+      for( var i = 0; i < sheets.length; i++ ){
+        if( sheets[ i ].href && sheets[ i ].href.indexOf( href ) > -1 ){
+          defined = true;
+        }
+      }
+      if( defined ){
+        ss.media = media || "all";
+      }
+      else {
+        setTimeout( toggleMedia );
+      }
+    }
+    toggleMedia();
+    return ss;
+  }
+  loadCSS( "{{ '/css/base' | append: site.css_ext }}" );
+  loadCSS( "http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700italic,700" );
+  loadCSS( "http://fonts.googleapis.com/css?family=Lato:700,700italic" );
+</script>
+
+  <title>{% if page.title %}{{ page.title | append: " | ryandomingue.com" }}{% else %}{{ site.title }}{% endif %}</title>
+
+  <meta property="og:image" content="{{ site.url }}/images/ryandomingue-bw.jpg">
+  <meta property="og:title" content="Ryan Domingue is a web designer and developer living in Seattle, Washington">
+  <meta property="og:url" content="http://ryandomingue.com">
+  <meta property="og:site_name" content="Ryan Domingue Online">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="The home page of ryandomingue.com.">
+
+  <meta name="description" content="{{ site.description }}">
+  <meta name="author" content="Ryan Domingue">
+  <meta name="copyright" content="2009-{{ site.time | date: '%Y' }}">
+  <meta name="robots" content="index, follow">
+
+  <noscript><link rel="stylesheet" href="{{ '/css/base' | append: site.css_ext }}"></noscript>
+  {% if page.code %}<noscript><link rel="stylesheet" href="{{ '/css/code' | append: site.css_ext }}"></noscript>{% endif %}
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1.0, user-scalable=1" />
+
+  <link rel="shortcut icon" href="/images/device-icons/favicon.ico">
+
+  <!-- Tile image for Windows devices 144x144 -->
+  <meta name="msapplication-TileImage" content="/images/device-icons/icon-144.png">
+  <!-- Tile color for Windows devices -->
+  <meta name="msapplication-TileColor" content="#2a8f9f">
+  <!-- 57x57 (precomposed) for iPhone 3GS, 2011 iPod Touch and older Android devices -->
+  <link rel="apple-touch-icon-precomposed" href="/images/device-icons/icon-57.png">
+  <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/device-icons/icon-72.png">
+  <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and 2012 iPod Touch -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/device-icons/icon-114.png">
+  <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/device-icons/icon-144.png">
+  <meta name="apple-mobile-web-app-title" content="Ryan D.">
+
+  <!-- enable HTML5 elements in IE7+8 -->
+  <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <!-- analytics -->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15132365-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</head>

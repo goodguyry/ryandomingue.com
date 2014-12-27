@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    <div class="grid">
+
+      <header role="banner">
+
+        <h1>Greetings, Earthling!</h1>
+        <nav>I am <a href='/about/'>Ryan</a>.</nav>
+
+      </header>
+
+      <main role="main">
+
+        {{ content }}
+
+        {% if site.posts[0] %}
+        <article>
+
+          <h2>{{ site.heading_blog }}</h2>
+
+          <ul class="post-list">
+            {% for post in site.posts limit:4 %}
+              <li>
+                <h3>
+                  <a class="post-link" href="{{ post.url | prepend: site.url }}">{{ post.title }}</a>
+                </h3>
+                {{ post.excerpt }}
+              </li>
+            {% endfor %}
+          </ul>
+
+          <a class="more" href="{{ site.blogroll | prepend: site.url }}">View the post archive</a>
+
+        </article>
+        {% endif %}
+
+      </main>
+
+    {% include footer.html %}
+
+    </div>
+
+  </body>
+
+</html>

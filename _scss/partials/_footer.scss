@@ -1,0 +1,17 @@
+/**!
+ * Footer
+ */
+
+footer[role=contentinfo] {
+  padding: $gutter-spacing;
+  width: 100%;
+  height: auto;
+  color: $theme-base-dark;
+  text-align: right;
+
+  p {
+    margin: 0;
+    font-size: 0.625em;
+  }
+
+}

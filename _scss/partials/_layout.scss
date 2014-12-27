@@ -1,0 +1,65 @@
+/**!
+ * Layout
+ */
+
+.grid {
+  position: relative; // To contain text selection highlighting
+
+  @include responsive($max-grid-width) {
+    max-width: $max-grid-width + px;
+    padding: 0;
+    margin: 0 auto;
+  }
+}
+
+article {
+  padding: 0 $gutter-spacing;
+  margin-bottom: 2em;
+  width: 100%;
+  position: relative; // To contain text selection highlighting
+  overflow: hidden;
+}
+
+section {
+  margin-bottom: 1em;
+}
+
+.project {
+  width: 100%;
+
+  // Prevent stacking uneven boxes
+  &:nth-of-type(3) {
+    clear: both;
+  }
+
+  @include responsive(700) {
+    @include column(1/2);
+  }
+}
+
+.post-list {
+  list-style-type: none;
+  margin-left: 0;
+
+  & li {
+    margin-bottom: 2em;
+  }
+
+  & h3 {
+    margin-bottom: 0;
+  }
+}
+
+.post-meta {
+  font-size: 0.625em;
+}
+
+.more {
+  font-size: 0.875em;
+
+  &:before {
+    content: "\203A";
+    display: inline;
+    padding-right: 0.25em;
+  }
+}
