@@ -1,4 +1,4 @@
-/**!
+/**
  * Common base styles styles
  */
 
@@ -22,7 +22,7 @@ body {
   }
 }
 
-/*! ---- Headings ---- */
+/* ---- Headings ---- */
 
 h1, h2, h3, h4, h5 {
   font: {
@@ -57,7 +57,7 @@ h5 {
   font-size: 1em;
 }
 
-/*! ---- Block ---- */
+/* ---- Block ---- */
 
 p {
   margin-bottom: 1.5em;
@@ -177,7 +177,7 @@ code {
   }
 }
 
-/*! ---- Inline ---- */
+/* ---- Inline ---- */
 
 em { font-style: italic; }
 
@@ -229,7 +229,7 @@ output {
   font-weight: bold;
 }
 
-/*! ---- Lists ---- */
+/* ---- Lists ---- */
 
 ul, ol {
   margin-bottom: 2em;
@@ -266,7 +266,7 @@ li ol {
     list-style-type: lower-alpha;
   }
 
-/*! ---- Classes ---- */
+/* ---- Classes ---- */
 
 .strike {
   color: $theme-decoration;
@@ -277,7 +277,7 @@ li ol {
   @extend %offscreen;
 }
 
-/*! ---- Selections ---- */
+/* ---- Selections ---- */
 
 ::selection {
   background: $theme-secondary;
