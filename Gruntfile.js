@@ -16,16 +16,6 @@ module.exports = function(grunt) {
         report: 'min',
         keepSpecialComments: 0
       },
-      deploy: {
-        files: {
-          // destination: source
-          '_site/css/base.min.css': '_site/css/base.css',
-          '_site/css/code.min.css': '_site/css/code.css'
-        },
-        options: {
-          banner: '<%= banner %>\n'
-        }
-      },
       critical: {
         files: {
           '_includes/critical.min.css': 'css/_critical.css'
@@ -72,12 +62,12 @@ module.exports = function(grunt) {
   // Load all grunt tasks
   require('load-grunt-tasks')(grunt);
 
-  // Task to change 'url' and 'css_ext' settings in _config.yml based on the environment passed
+  // Task to 'sass.style' settings in _config.yaml based on the environment passed
   grunt.registerTask(
     'environment',
-    'Replace file names depending on the environment.',
+    'Replace config.yaml settings depending on the environment.',
     function(){
-      var minPattern = /css_ext:\s(.*)/,
+      var pattern = /style:\s(.*)/,
           file = grunt.file.read('_config.yaml'),
           dev = false,
           prod = true;
@@ -86,7 +76,7 @@ module.exports = function(grunt) {
       grunt.log.subhead('Configuring environment strings...\n');
 
       // Grab the css_ext setting
-      var extMatch = file.match(minPattern);
+      var extMatch = file.match(pattern);
 
       if (this.flags) {
         dev = this.flags['dev'],
@@ -94,7 +84,7 @@ module.exports = function(grunt) {
       }
 
       function unchanged() {
-        grunt.log.writeln('CSS extension unchanged');
+        grunt.log.writeln('Sass style unchanged');
         grunt.log.writeln();
       }
 
@@ -102,20 +92,18 @@ module.exports = function(grunt) {
         // We have a match, so proceed
 
         if (dev) {
-          // Set appropriate css file extension
-          // '.css' for development
-          if (extMatch[1] === '.min.css') {
-            // change it to '.css'
-            file = file.replace(extMatch[1], '.css');
+          // Set appropriate Sass output style
+          // 'expanded' for development
+          if (extMatch[1] === 'compressed') {
+            file = file.replace(extMatch[1], 'expanded');
           } else {
             unchanged();
           }
         } else if (prod) {
-          // Set appropriate css file extension
-          // '.min.css' for production
-          if (extMatch[1] === '.css') {
-            // change it to '.min.css'
-            file = file.replace(extMatch[1], '.min.css');
+          // Set appropriate Sass output style
+          // 'compressed' for production
+          if (extMatch[1] === 'expanded') {
+            file = file.replace(extMatch[1], 'compressed');
           } else {
             unchanged();
           }
@@ -142,8 +130,8 @@ module.exports = function(grunt) {
     'default',
     [
       'environment:prod',
-      'shell:build',
       'cssmin',
+      'shell:build',
       'environment:dev'
     ]
   );
@@ -164,8 +152,8 @@ module.exports = function(grunt) {
     [
       'perf',
       'environment:prod',
-      'shell:build',
       'cssmin',
+      'shell:build',
       'environment:dev'
     ]
   );

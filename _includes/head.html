@@ -50,7 +50,8 @@
     toggleMedia();
     return ss;
   }
-  loadCSS( "{{ '/css/base' | append: site.css_ext }}" );
+  loadCSS( "{{ '/css/base.css' }}" );
+  {% if page.code %}loadCSS( "{{ '/css/code.css' }}" );{% endif %}
   loadCSS( "http://fonts.googleapis.com/css?family=Merriweather:400,400italic,700italic,700" );
   loadCSS( "http://fonts.googleapis.com/css?family=Lato:700,700italic" );
 </script>
@@ -69,8 +70,8 @@
   <meta name="copyright" content="2009-{{ site.time | date: '%Y' }}">
   <meta name="robots" content="index, follow">
 
-  <noscript><link rel="stylesheet" href="{{ '/css/base' | append: site.css_ext }}"></noscript>
-  {% if page.code %}<noscript><link rel="stylesheet" href="{{ '/css/code' | append: site.css_ext }}"></noscript>{% endif %}
+  <noscript><link rel="stylesheet" href="{{ '/css/base.css' }}"></noscript>
+  {% if page.code %}<noscript><link rel="stylesheet" href="{{ '/css/code.css' }}"></noscript>{% endif %}
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
 
   <meta name="HandheldFriendly" content="True">
