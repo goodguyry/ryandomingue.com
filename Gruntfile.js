@@ -141,20 +141,7 @@ module.exports = function(grunt) {
     'perf',
     [
       'imagemin',
-      // 'criticalcss',
-      'cssmin:critical'
-    ]
-  );
-
-  // default: environment, shell:build, cssmin
-  grunt.registerTask(
-    'all',
-    [
-      'perf',
-      'environment:prod',
-      'cssmin',
-      'shell:build',
-      'environment:dev'
+      // 'criticalcss'
     ]
   );
 
