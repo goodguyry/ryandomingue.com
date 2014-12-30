@@ -18,7 +18,7 @@
 
         {{ content }}
 
-        {% if site.posts[0] %}
+        {% if site.posts.size > 0 %}
         <article>
 
           <h2>{{ site.heading_blog }}</h2>
@@ -34,7 +34,9 @@
             {% endfor %}
           </ul>
 
+          {% if site.posts.size > 4 %}
           <a class="more" href="{{ site.blogroll }}">View the post archive</a>
+          {% endif %}
 
         </article>
         {% endif %}
