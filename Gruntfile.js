@@ -6,11 +6,6 @@ module.exports = function(grunt) {
 
     pkg: grunt.file.readJSON('package.json'),
 
-    banner: '/**\n' +
-            ' * By <%= pkg.author %>\n' +
-            ' * Full source available at <%= pkg.homepage %>\n' +
-            ' */',
-
     cssmin: {
       options: {
         report: 'min',
