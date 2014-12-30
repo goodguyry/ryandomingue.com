@@ -78,14 +78,19 @@ module.exports = function(grunt) {
       // Grab the css_ext setting
       var extMatch = file.match(pattern);
 
+      // Check flags
       if (this.flags) {
         dev = this.flags['dev'],
         prod = this.flags['prod'];
       }
 
+      // Done
+      function done(style) {
+        grunt.log.oklns('Sass style set to "' + style + '" in _config.yaml');
+      }
+
       function unchanged() {
-        grunt.log.writeln('Sass style unchanged');
-        grunt.log.writeln();
+        grunt.log.error('Sass style unchanged');
       }
 
       if (extMatch.length > 1) {
@@ -96,6 +101,8 @@ module.exports = function(grunt) {
           // 'expanded' for development
           if (extMatch[1] === 'compressed') {
             file = file.replace(extMatch[1], 'expanded');
+            // Done
+            done('expanded');
           } else {
             unchanged();
           }
@@ -104,6 +111,8 @@ module.exports = function(grunt) {
           // 'compressed' for production
           if (extMatch[1] === 'expanded') {
             file = file.replace(extMatch[1], 'compressed');
+            // Done
+            done('compressed');
           } else {
             unchanged();
           }
@@ -116,8 +125,6 @@ module.exports = function(grunt) {
         // Write changes back to _config.yaml
         grunt.file.write('_config.yaml', file);
 
-        // Done
-        grunt.log.oklns('environment:' + Object.keys(this.flags) + ' setting processed in _config.yaml');
       } else {
         // Fail if no matches are found
         grunt.fail.warn('No matches found');
