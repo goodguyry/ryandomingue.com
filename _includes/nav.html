@@ -3,7 +3,7 @@
 <nav>
   <ul>
   {% for item in nav %}
-    <li>{% if item.url == navurl %}{{ item.text }}{% else %}<a href="{{ item.url \ prepend: site.url }}">{{ item.text }}</a>{% endif %}</li>
+    <li>{% if item.url == navurl %}{{ item.text }}{% else %}<a href="{{ item.url }}">{{ item.text }}</a>{% endif %}</li>
   {% endfor %}
   </ul>
 </nav>

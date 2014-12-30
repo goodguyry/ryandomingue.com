@@ -27,14 +27,14 @@
             {% for post in site.posts limit:4 %}
               <li>
                 <h3>
-                  <a class="post-link" href="{{ post.url | prepend: site.url }}">{{ post.title }}</a>
+                  <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
                 </h3>
                 {{ post.excerpt }}
               </li>
             {% endfor %}
           </ul>
 
-          <a class="more" href="{{ site.blogroll | prepend: site.url }}">View the post archive</a>
+          <a class="more" href="{{ site.blogroll }}">View the post archive</a>
 
         </article>
         {% endif %}
