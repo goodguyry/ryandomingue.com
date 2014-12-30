@@ -17,17 +17,6 @@ module.exports = function(grunt) {
       }
     },
 
-    imagemin: {
-      icons: {
-        files: [{
-          expand: true,
-          cwd: '_temp/',
-          src: ['*.{png,jpg,gif}', '**/*.{png,jpg,gif}'],
-          dest: 'images/'
-        }]
-      }
-    },
-
     criticalcss: {
       home: {
         options: {
