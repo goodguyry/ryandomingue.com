@@ -57,7 +57,7 @@ Set `autolibs` in the `curl` command &ndash; not after, as the docs suggest.
 Even with that bit of magic, updating Ruby was unnecessarily difficult. I ended up going with [this suggestion from another Stack Exchange answer](http://stackoverflow.com/questions/15798461/how-do-i-use-rvm-to-install-ruby-on-a-dreamhost-shared-server/19238624#19238624).
 
 {% highlight bash %}
-rvm mount -r https://rvm.io/binaries/ubuntu/12.04/x86_64/ruby-2.0.0-p598.tar.bz2 --verify-downloads 1`
+rvm mount -r https://rvm.io/binaries/ubuntu/12.04/x86_64/ruby-2.0.0-p598.tar.bz2 --verify-downloads 1
 {% endhighlight %}
 
 Be sure to substitute your OS and versions if they differ from mine
