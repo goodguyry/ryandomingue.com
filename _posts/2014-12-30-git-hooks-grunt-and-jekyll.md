@@ -36,7 +36,7 @@ NVM makes it almost *too* easy to install and update Node. I chose the manual in
 
 Manually installing NVM is as simple as cloning the repo and checking out the latest version:
 
-{% highlight bash %}
+{% highlight term %}
 git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
 {% endhighlight %}
 
@@ -48,7 +48,7 @@ Once that's finished, source the `~/.nvm/nvm.sh` file in your shell and you can 
 
 Installing gems like Jekyll and Rouge was no problem. However, Dreamhost has an older version of Ruby (1.8.7), which meant I was stuck on older versions of the gems. [The Dreamhost RVM docs](http://wiki.dreamhost.com/RVM) helped, but it still wasn't quite working. [This Stack Exchange answer](http://stackoverflow.com/questions/17357777/dreamhost-vps-cant-install-rvm-because-new-to-be-sudoer/17364911#17364911) cleared everything up:
 
-{% highlight bash %}
+{% highlight term %}
 \curl -L https://get.rvm.io | bash -s -- --autolibs=read-fail
 {% endhighlight %}
 
@@ -56,7 +56,7 @@ Set `autolibs` in the `curl` command &ndash; not after, as the docs suggest.
 
 Even with that bit of magic, updating Ruby was unnecessarily difficult. I ended up going with [this suggestion from another Stack Exchange answer](http://stackoverflow.com/questions/15798461/how-do-i-use-rvm-to-install-ruby-on-a-dreamhost-shared-server/19238624#19238624).
 
-{% highlight bash %}
+{% highlight term %}
 rvm mount -r https://rvm.io/binaries/ubuntu/12.04/x86_64/ruby-2.0.0-p598.tar.bz2 --verify-downloads 1
 {% endhighlight %}
 

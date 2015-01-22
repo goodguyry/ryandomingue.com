@@ -139,6 +139,13 @@ $purple: rgb(177, 115, 113);
   .p { color: $white; }
 }
 
+.language-term:before {
+  content: '$';
+  display: inline-block;
+  margin-right: 0.5em;
+  color: lighten($gray, 10%);
+}
+
 /********************************************************
  * Legend:
 
