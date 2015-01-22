@@ -175,6 +175,10 @@ code {
     border-radius: 3px;
     border: 1px solid $theme-decoration-light;
   }
+
+  &.path {
+    border: none;
+  }
 }
 
 /* ---- Inline ---- */

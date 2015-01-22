@@ -32,7 +32,7 @@ I originally installed Node on my server a while back by cloning the source and 
 
 #### NVM : Node :: RVM : Ruby
 
-NVM makes it almost *too* easy to install and update Node. I chose the manual install to avoid having my `bash_profile` automatically written to.
+NVM makes it almost *too* easy to install and update Node. I chose the manual install to avoid having my <code class="path">bash_profile</code> automatically written to.
 
 Manually installing NVM is as simple as cloning the repo and checking out the latest version:
 
@@ -42,7 +42,7 @@ git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git check
 
 From the [NVM Readme](https://github.com/creationix/nvm#manual-install)
 
-Once that's finished, source the `~/.nvm/nvm.sh` file in your shell and you can easily manage Node versions. [See their usage docs](https://github.com/creationix/nvm#usage) for more, but what I did was [update my dotfiles](https://github.com/goodguyry/dotfiles/commit/5cd72d0a62779aace5ee444eb1ae8cf0194955f6), test on my laptop and then pull the changes to the server. From there I re-installed my dotfiles and everything was ready to go.
+Once that's finished, source the <code class="path">~/.nvm/nvm.sh</code> file in your shell and you can easily manage Node versions. [See their usage docs](https://github.com/creationix/nvm#usage) for more, but what I did was [update my dotfiles](https://github.com/goodguyry/dotfiles/commit/5cd72d0a62779aace5ee444eb1ae8cf0194955f6), test on my laptop and then pull the changes to the server. From there I re-installed my dotfiles and everything was ready to go.
 
 ### RVM and Ruby
 
@@ -72,7 +72,7 @@ This was my first experience with Git hooks, so I think I let that cloud what wa
 
 #### The non-login environment
 
-I haven't researched this a whole lot, so forgive me if I don't have this 100% correct, but, as far as I could figure out, my Git hook is running in a non-login shell, meaning all my fancy `bash_profile` settings and `$PATH` weren't set as they should have been.
+I haven't researched this a whole lot, so forgive me if I don't have this 100% correct, but, as far as I could figure out, my Git hook is running in a non-login shell, meaning all my fancy <code class="path">bash_profile</code> settings and `$PATH` weren't set as they should have been.
 
 So, essentially, what I needed to do was re-create my login environment for the Git hook.
 
