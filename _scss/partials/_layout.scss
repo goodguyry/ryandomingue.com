@@ -63,3 +63,15 @@ section {
     padding-right: 0.25em;
   }
 }
+
+.note {
+  font: {
+    size: 0.875em;
+    style: italic;
+  }
+  padding: 0.5em;
+  color: $theme-font-light;
+  background-color: $theme-decoration-light;
+  border: 1px solid $theme-decoration-dark;
+  border-radius: 3px;
+}
