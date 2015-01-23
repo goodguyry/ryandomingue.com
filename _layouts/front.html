@@ -1,52 +1,56 @@
 <!DOCTYPE html>
 <html>
 
-  {% include head.html %}
+{% include head.html %}
 
-  <body>
+<body>
 
-    <div class="grid">
+  <div class="grid">
 
-      <header role="banner">
+    <header role="banner">
 
-        <h1>Greetings, Earthling!</h1>
-        <nav>I am <a href='/about/'>Ryan</a>.</nav>
+      <h1>Greetings, Earthling!</h1>
 
-      </header>
+      <nav><a href='/about/'>I am Ryan</a>.</nav>
 
-      <main role="main">
+    </header>
 
-        {{ content }}
+    <main role="main">
 
-        {% if site.posts.size > 0 %}
-        <article>
+{{ content }}
 
-          <h2>{{ site.heading_blog }}</h2>
+      {% if site.posts.size > 0 %}
+      <article>
 
-          <ul class="post-list">
-            {% for post in site.posts limit:4 %}
-              <li>
-                <h3>
-                  <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
-                </h3>
-                {{ post.excerpt }}
-              </li>
-            {% endfor %}
-          </ul>
+        <h2>{{ site.heading_blog }}</h2>
 
-          {% if site.posts.size > 4 %}
-          <a class="more" href="{{ site.blogroll }}">View the post archive</a>
-          {% endif %}
+        <ul class="post-list">
+          {% for post in site.posts limit:4 %}
+            <li>
 
-        </article>
+              <h3>
+                <a class="post-link" href="{{ post.url }}">{{ post.title }}</a>
+              </h3>
+
+              {{ post.excerpt }}
+
+            </li>
+          {% endfor %}
+        </ul>
+
+        {% if site.posts.size > 4 %}
+        <a class="more" href="{{ site.blogroll }}">View the post archive</a>
         {% endif %}
 
-      </main>
+      </article>
+      {% endif %}
 
-    {% include footer.html %}
+    </main>
 
-    </div>
+{% include footer.html %}
 
-  </body>
+  </div>
+
+</body>
 
 </html>
