@@ -5,7 +5,7 @@ excerpt: I haven't seen a lot of documentation about Multi-Tenant WordPress, but
 code: true
 ---
 
-This post was inspired by Jason McCreary's [WordPress Multitenancy](http://jason.pureconcepts.net/2012/08/wordpress-multitenancy/) (and [his follow-up](http://jason.pureconcepts.net/2013/04/updated-wordpress-multitenancy/)). I haven't seen a lot of documentation about Multi-Tenant WordPress, but I've seen several comments suggesting some have had issues setting everything up, so I've decided to collect my experience here.
+<p class="note">This post was inspired by Jason McCreary's <a href="http://jason.pureconcepts.net/2012/08/wordpress-multitenancy/">WordPress Multitenancy</a> (and <a href="http://jason.pureconcepts.net/2013/04/updated-wordpress-multitenancy/">his follow-up</a>).</p>
 
 ### Overview
 
@@ -34,17 +34,17 @@ wordpress
 
 The site's root
 
-By taking advantage of some very fully supported alternative configuration and setup options, we can allow for:
+By taking advantage of some fully supported alternative configuration and setup options, we can allow for:
 
 - Slow, tested rollouts of WordPress core updates
 - A dev > stage > production workflow in a single WordPress install
-- Easily add more sites as needed
+- Easily adding more sites as needed
 
 That last point is especially attractive if you develop multiple WordPress sites; make this your local setup and you're golden.
 
 ### Getting Started
 
-We're essentially going to be giving WordPress it's own directory, then moving the <code class="path">wp-content</code> directory to the site's root.
+We're essentially going to be [giving WordPress its own directory](http://codex.wordpress.org/Giving_WordPress_Its_Own_Directory), then moving the <code class="path">wp-content</code> directory to the site's root.
 
 #### Give WordPress its own directory
 
@@ -54,7 +54,7 @@ As mentioned, the core WordPress files should be moved into versioned directorie
 ln -s /opt/wordpress/4.1/ /path/to/site/wordpress
 {% endhighlight %}
 
-Symlink the core WordPress files to a directory in the site's root
+Symlink the core WordPress files to the site's root
 
 **Copy** index.php from <code class="path">/opt/wordpress/4.1/</code> to the site's root directory and edit the last line to add the <code class="path">wordpress</code> symlinked directory.
 
@@ -69,9 +69,9 @@ Tell WordPress where to find itself
 
 In my experience, the <code class="path">wp-content</code> directory isn't necessary in the core WordPress files, so we can safely move it to our site's root.
 
-One tip you may find useful: Copy <code class="path">wp-content</code> to the <code class="path">/opt/wordpress</code> directory so you've got a spare you use when adding sites in the future.
+One tip you may find useful: Copy <code class="path">wp-content</code> to the <code class="path">/opt/wordpress</code> directory so you've got a spare you can use when adding sites in the future.
 
-We'll need to make some changes to the main <code class="path">wp-config.php</code> and tenant config files to make sure WordPress can find our <code class="path">wp-content</code> directory, but for now we've got all the files in place.
+We'll need to make some changes to the main <code class="path">wp-config.php</code> and tenant config files to make sure WordPress can find our <code class="path">wp-content</code> directory, but the files are now all in place.
 
 {% highlight term %}
 ls -l
@@ -90,7 +90,7 @@ For the main config file, the `DB_NAME`, `DB_USER`, `DB_PASSWORD` and `DB_HOST` 
 {% highlight php %}
 <?php // From /opt/wordpress/wp-config.php
 
-// Parse the domain to create the tenant's config file path
+// Parse the host to create the tenant's config file path
 $server_host = preg_replace('/:.*/', "", $_SERVER['HTTP_HOST']);
 $server_host = preg_replace("/[^a-zA-Z0-9.\-]/", "", $server_host);
 $host_config_file = '/opt/wordpress/tenant-configs/'.strtolower($server_host).'-config.php';
@@ -104,7 +104,7 @@ if (file_exists($host_config_file)) {
 
 Require the tenant config files based on their host name
 
-The tenant configuration files hold the tenant-specific database settings and Authentication Unique Keys, along with a couple declarations to tell WordPress where the <code class="path">wp-content</code> directory is located.
+The tenant config files hold the tenant-specific database settings and Authentication Unique Keys, along with a couple declarations to tell WordPress where the <code class="path">wp-content</code> directory is located.
 
 {% highlight php %}
 <?php
@@ -141,7 +141,7 @@ The last two lines tell WordPress where the <code class="path">wp-content</code>
 
 ### Intall WordPress
 
-Be sure to visit your site at <code class="path">mysite.com/wordpress</code> in order to be prompted to start the installation.
+Be sure to visit your site at <code class="path">mysite.com/wordpress</code> in order to be prompted to start the installation. After installation, you shouldn't need to include the <code class="path">wordpress</code> directory in the URL when visiting the Admin Dashboard.
 
 ---
 
