@@ -31,15 +31,14 @@ $theme-main: rgb(42, 143, 159);
 // Used as selection background
 $theme-secondary: rgb(247, 157, 0);
 
-// Alternate secondary color
+// Alternate theme color
 $theme-alt: rgb(239, 34, 52);
 
 // Lightest theme color, used for body background
 $theme-base: rgb(255, 255, 255);
 
-$theme-base-dark: rgb(50, 50, 50); // Main font body color
-$theme-decoration: lighten($theme-base-dark, 20%); // Aside
-$theme-decoration-light: lighten($theme-base-dark, 60%); // Horizontal rules
+$theme-font-dark: rgb(50, 50, 50); // Main font body color
+$theme-font-light: lighten($theme-font-dark, 20%); // Asides and font decorations
 
-// Used as the background for inline code
-$theme-highlighter: lighten($theme-decoration-light, 15%); // border around highlighting
+$theme-decoration-light: lighten($theme-font-dark, 75%); // Background color for asides
+$theme-decoration-dark: lighten($theme-font-dark, 60%); // Horizontal rules

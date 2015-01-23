@@ -12,7 +12,7 @@ body {
   }
   line-height: 1.5;
   background-color: $theme-base;
-  color: $theme-base-dark;
+  color: $theme-font-dark;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
@@ -67,9 +67,9 @@ blockquote {
   width: 100%;
   margin-bottom: 1.5em;
   padding: .5em;
-  border-top: 3px double $theme-decoration-light;
-  border-bottom: 3px double $theme-decoration-light;
-  color: $theme-base-dark;
+  border-top: 3px double $theme-decoration-dark;
+  border-bottom: 3px double $theme-decoration-dark;
+  color: $theme-font-dark;
   font-size: 1.25em;
   quotes: none;
 
@@ -131,7 +131,7 @@ hr {
   border: none;
   height: 1px;
   width: 60%;
-  background-color: $theme-decoration-light;
+  background-color: $theme-decoration-dark;
   margin-bottom: 2em;
 }
 
@@ -173,7 +173,7 @@ code {
     display: inline;
     padding: 0.05em 0.2em;
     border-radius: 3px;
-    border: 1px solid $theme-decoration-light;
+    border: 1px solid $theme-decoration-dark;
   }
 
   &.path {
@@ -208,8 +208,8 @@ img {
 kbd {
   padding: 0.05em 0.2em;
   font-family: monospace;
-  border: 1px solid $theme-decoration-light;
-  background-color: $theme-highlighter;
+  border: 1px solid $theme-decoration-dark;
+  background-color: $theme-decoration-light;
   border-radius: 3px;
 }
 
@@ -218,7 +218,7 @@ cite {
 }
 
 abbr[title] {
-  border-bottom: 1px dotted $theme-decoration;
+  border-bottom: 1px dotted $theme-font-light;
   cursor: help;
 }
 
@@ -273,7 +273,7 @@ li ol {
 /* ---- Classes ---- */
 
 .strike {
-  color: $theme-decoration;
+  color: $theme-font-light;
   text-decoration: line-through;
 }
 
@@ -295,11 +295,11 @@ li ol {
 
 a::selection,
 a h3::selection {
-  color: $theme-base-dark;
+  color: $theme-font-dark;
 }
 
   a::-moz-selection {
-    color: $theme-base-dark;
+    color: $theme-font-dark;
   }
 
 img::selection {
