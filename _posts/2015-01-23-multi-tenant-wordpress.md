@@ -2,6 +2,7 @@
 layout: post
 title: Multi-Tenant WordPress
 excerpt: I haven't seen a lot of documentation about Multi-Tenant WordPress, but I've seen several comments suggesting some have had issues setting everything up, so I've decided to collect my experience here.
+description: The multi-tenant WordPress setup allows multiple 'tenant' sites to run from one 'core' WordPress install.
 code: true
 ---
 
