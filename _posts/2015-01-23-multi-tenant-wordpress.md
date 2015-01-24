@@ -2,7 +2,7 @@
 layout: post
 title: Multi-Tenant WordPress
 excerpt: I haven't seen a lot of documentation about Multi-Tenant WordPress, but I've seen several comments suggesting some have had issues setting everything up, so I've decided to collect my experience here.
-description: The multi-tenant WordPress setup allows multiple 'tenant' sites to run from one 'core' WordPress install.
+description: The multi-tenant WordPress setup allows multiple 'tenant' sites to run from one 'core' WordPress install, but with separate databases.
 code: true
 ---
 
@@ -10,7 +10,7 @@ code: true
 
 ### Overview
 
-The multi-tenant WordPress setup allows multiple "tenant" sites to run from one "core" WordPress install. The WordPress files are placed in versioned directories outside of the site's root, such as <code class="path">/opt/wordpress/{version}/</code>, then symlinked to the tenant sites' root directories.
+The multi-tenant WordPress setup allows multiple "tenant" sites to run from one "core" WordPress install, but with separate databases. The WordPress files are placed in versioned directories outside of the site's root, such as <code class="path">/opt/wordpress/{version}/</code>, then symlinked to the tenant sites' root directories.
 
 The main <code class="path">wp-config.php</code> file is in <code class="path">/opt/wordpress</code> and contains all shared WordPress settings and definitions, along with a bit of code to require the tenants' config files, based on the host.
 
@@ -38,7 +38,8 @@ The site's root
 By taking advantage of some fully supported alternative configuration and setup options, we can allow for:
 
 - Slow, tested rollouts of WordPress core updates
-- A dev > stage > production workflow in a single WordPress install
+- A <code class="path">dev > stage > production</code> Git workflow in a single WordPress install
+- Separate databases for each of our sites (or branches)
 - Easily adding more sites as needed
 
 That last point is especially attractive if you develop multiple WordPress sites; make this your local setup and you're golden.
