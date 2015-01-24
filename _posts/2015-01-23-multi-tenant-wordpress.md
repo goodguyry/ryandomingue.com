@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Multi-Tenant WordPress
-excerpt: I haven't seen a lot of documentation about Multi-Tenant WordPress, but I've seen several comments suggesting some have had issues setting everything up, so I've decided to collect my experience here.
+excerpt: Multi-Tenant WordPress is similar to WordPress Multisite, but each site uses a separate database. It&rsquo;s more difficult to set up than Multisite, but has some specific advantages.
 description: The multi-tenant WordPress setup allows multiple 'tenant' sites to run from one 'core' WordPress install, but with separate databases.
 code: true
 ---
