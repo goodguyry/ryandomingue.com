@@ -12,7 +12,8 @@ module.exports = function(grunt) {
       },
       critical: {
         files: {
-          '_includes/critical.min.css': 'css/_critical.css'
+          '_includes/critical.min.css': 'css/_critical.css',
+          '_includes/critical.post.min.css': 'css/_critical.post.css'
         }
       }
     },
@@ -23,6 +24,17 @@ module.exports = function(grunt) {
           url: 'http://ryandomingue.dev',
           filename: '_site/css/base.css',
           outputfile: 'css/_critical.css',
+          forceInclude: ['nav'],
+          width: 1200,
+          height: 800,
+          buffer: 800*1024
+        }
+      },
+      post: {
+        options: {
+          url: 'http://ryandomingue.dev/thoughts-and-ramblings/multi-tenant-wordpress.html',
+          filename: '_site/css/base.css',
+          outputfile: 'css/_critical.post.css',
           forceInclude: ['nav'],
           width: 1200,
           height: 800,
