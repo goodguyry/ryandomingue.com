@@ -1,7 +1,7 @@
 # Site settings
 title: 'Ryan Domingue is a web designer and developer living in Seattle, Washington'
 description: 'Ryan Domingue works with HTML, CSS and JavaScript, and spends his time learning and creating. Ryan loves coffee and cannot be trusted around cookies.'
-permalink: /thoughts-and-ramblings/:title.html
+permalink: /notes/:title.html
 
 # Development/Serve
 host: ryandomingue.dev # local vhost
@@ -26,8 +26,8 @@ kramdown:
   smart_quotes:  lsquo,rsquo,ldquo,rdquo
 
 # Misc constants
-blogroll: /thoughts-and-ramblings/
-heading_blog: Thoughts and Ramblings
+blogroll: /notes/
+heading_blog: Notes
 heading_projects: Selected Projects
 
 twitter_username: goodguyry
