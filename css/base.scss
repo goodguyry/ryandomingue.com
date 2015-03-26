@@ -2,15 +2,111 @@
 # Base
 ---
 
-// Modules
-@import "modules/variables";
-@import "modules/utils";
+/******************************************
+ * Variables
+ *****************************************/
+
+/**
+ * Base typography
+ */
+
+$base-font-family: 'Merriweather', serif;
+$heading-font-family: 'Lato', sans-serif;
+$base-font-size: 16;
+
+/**
+ * Columns
+ */
+
+// Set up the columns
+$column-width: 40;
+$gutter-width: 20;
+$number-of-columns: 12;
+
+// Calculate the max width of the grid
+$max-grid-width: ($column-width * $number-of-columns) + ($gutter-width * $number-of-columns);
+
+// Calculate the length of the gutters
+$gutter-spacing: (($gutter-width/2)/$base-font-size) + em;
+
+/**
+ * Colors
+ */
+
+// Main theme color
+$theme-main: rgb(42, 143, 159);
+
+// Used as selection background
+$theme-secondary: rgb(247, 157, 0);
+
+// Alternate theme color
+$theme-alt: rgb(239, 34, 52);
+
+// Lightest theme color, used for body background
+$theme-base: rgb(255, 255, 255);
+
+$theme-font-dark: rgb(50, 50, 50); // Main font body color
+$theme-font-light: lighten($theme-font-dark, 20%); // Asides and font decorations
+
+$theme-decoration-light: lighten($theme-font-dark, 75%); // Background color for asides
+$theme-decoration-dark: lighten($theme-font-dark, 60%); // Horizontal rules
+
+
+/******************************************
+ * Mixins
+ *****************************************/
+
+/**
+ * Simple columns
+ * Accepts fraction for columns
+ * Gutters faked with padding
+ *
+ * @include column(1/3);
+ */
+@mixin column($fraction) {
+  width: percentage($fraction);
+  float: left;
+}
+
+/**
+ * Simple media query
+ * Takes a pixel length, converts it to ems and adds the passed style declarations
+ * Media query condition is always min-width
+ * @param $px The pixel length to be converted to ems
+ *
+ * @include responsive(px) { ... }
+ */
+@mixin responsive($px) {
+  $width: ($px/$base-font-size) + em;
+  @media only screen and (min-width: ($width)) { @content; }
+}
+
+/**
+ * Add a 200ms transition
+ * @param $properties A list of the properties to be transitioned
+ *
+ * @include transition((property-1[, property-2]));
+ */
+@mixin transition($properties...) {
+
+  $values: ();
+
+  @each $property in $properties {
+    $values: append($values, $property .2s ease, comma);
+  }
+
+  transition: $values;
+}
+
+/******************************************
+ * Includes
+ *****************************************/
 
 // Eric Meyer's Reset v2.0 | 20110126
 @import "partials/reset";
 
 // Load base element styles
-@import "partials/common";
-@import "partials/header";
-@import "partials/layout";
-@import "partials/footer";
+@import "partials/common",
+        "partials/header",
+        "partials/layout",
+        "partials/footer";

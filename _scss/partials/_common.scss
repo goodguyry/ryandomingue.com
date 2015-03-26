@@ -278,7 +278,14 @@ li ol {
 }
 
 .hidden {
-  @extend %offscreen;
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  line-height: 0;
+  opacity: 0;
 }
 
 /* ---- Selections ---- */
