@@ -77,9 +77,9 @@ $theme-decoration-dark: lighten($theme-font-dark, 60%); // Horizontal rules
  *
  * @include responsive(px) { ... }
  */
-@mixin responsive($px) {
+@mixin responsive($px, $mm: 'min') {
   $width: ($px/$base-font-size) + em;
-  @media only screen and (min-width: ($width)) { @content; }
+  @media only screen and (#{$mm}-width: ($width)) { @content; }
 }
 
 /**

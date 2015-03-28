@@ -4,7 +4,7 @@
 :root {
   font-size: large;
 
-  @include responsive(500) {
+  @include responsive(500, min) {
     font-size: x-large;
   }
 }
