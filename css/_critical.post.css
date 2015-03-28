@@ -1,36 +1,30 @@
 html, body, div, figure, figcaption, img, blockquote, h1, h2, h3, h4, h5, ol, p, pre, ul, li ul, li ol, abbr, a, cite, code, em, kbd, li, span, strike, strong, sub, sup, main, article, aside, footer, header, nav, section { margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 100%; font: inherit; vertical-align: baseline; box-sizing: border-box; }
 main, article, aside, footer, header, nav, section { display: block; }
-body{ width: 100%; font-family: Merriweather, serif; font-size: large; font-style: normal; font-weight: normal; line-height: 1.5; background-color: white; color: rgb(50, 50, 50); -webkit-font-smoothing: antialiased; }
+:root{ font-size: large; }
 @media only screen and (min-width: 40.625em){
-body{ font-size: x-large; }
+:root{ font-size: x-large; }
 }
-h1, h2, h3{ font-family: Lato, sans-serif; font-weight: bold; }
-h2, .post-title{ font-size: 2em; margin-bottom: 0.75em; }
-h3{ font-size: 1.5em; }
-p{ margin-bottom: 1.5em; }
-pre{ margin-bottom: 0.5em; padding-top: 1em; padding-right: 1em; padding-bottom: 1em; padding-left: 1em; position: relative; background-color: rgb(57, 57, 57); }
-code{ overflow-x: auto; overflow-y: auto; max-width: 100%; position: relative; line-height: inherit; font-family: Consolas, Monaco, 'Andale Mono', monospace; font-size: 0.75em; white-space: pre; -webkit-hyphens: none; }
-pre code{ height: 100%; max-height: 20em; display: block; color: white; }
-:not(pre) > code{ color: rgb(57, 57, 57); display: inline; padding-top: 0.05em; padding-right: 0.2em; padding-bottom: 0.05em; padding-left: 0.2em; border-top-left-radius: 3px 3px; border-top-right-radius: 3px 3px; border-bottom-right-radius: 3px 3px; border-bottom-left-radius: 3px 3px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(203, 203, 203); border-right-color: rgb(203, 203, 203); border-bottom-color: rgb(203, 203, 203); border-left-color: rgb(203, 203, 203); }
-code.path{ border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-width: initial; border-color: initial; }
+body{ width: 100%; font-family: Merriweather, serif; font-style: normal; font-weight: normal; line-height: 1.5; background-color: white; color: rgb(50, 50, 50); -webkit-font-smoothing: antialiased; }
+h1, h2{ font-family: Lato, sans-serif; font-weight: bold; }
+h2{ font-size: 2em; margin-bottom: 0.75rem; }
+p{ margin-bottom: 1.5rem; }
 a{ color: rgb(42, 143, 159); text-decoration: none; }
-ul{ margin-bottom: 2em; }
-ul{ list-style-type: disc; list-style-position: outside; list-style-image: none; margin-left: 1em; }
-ul li{ margin-bottom: 0.5em; }
-header[role="banner"]{ padding-top: 3em; padding-right: 0.625em; padding-bottom: 3em; padding-left: 0.625em; }
- header[role="banner"] h2{ font-size: 2.6em; line-height: 1; margin-bottom: 0px; }
-nav { width: 100%; height: 1.5em; margin-top: 0.25em; font-size: 1em; }
+header[role="banner"]{ padding-top: 3rem; padding-right: 0.625rem; padding-bottom: 3rem; padding-left: 0.625rem; }
+header[role="banner"] h1{ font-size: 2.6rem; line-height: 1; margin-bottom: 0px; }
+nav { width: 100%; height: 1.5rem; margin-top: 0.25rem; font-size: 1rem; }
 @media only screen and (min-width: 40.625em){
-nav { font-size: 0.875em; }
+nav { font-size: 0.875rem; }
 }
 nav ul { margin-bottom: 0px; margin-left: 0px; list-style-type: none; }
 nav li { float: left; }
-nav li::before { content: '/'; display: inline; margin-top: 0px; margin-right: 0.5em; margin-bottom: 0px; margin-left: 0.5em; }
+nav li::before { content: '/'; display: inline; margin-top: 0px; margin-right: 0.5rem; margin-bottom: 0px; margin-left: 0.5rem; }
 nav li:first-of-type::before { display: none; }
 .grid{ position: relative; }
 @media only screen and (min-width: 45em){
 .grid{ max-width: 720px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; margin-top: 0px; margin-right: auto; margin-bottom: 0px; margin-left: auto; }
 }
-article{ padding-top: 0px; padding-right: 0.625em; padding-bottom: 0px; padding-left: 0.625em; margin-bottom: 2em; width: 100%; position: relative; overflow-x: hidden; overflow-y: hidden; }
-.post-meta{ font-size: 0.625em; }
-.note{ font-size: 0.875em; font-style: italic; padding-top: 0.5em; padding-right: 0.5em; padding-bottom: 0.5em; padding-left: 0.5em; color: rgb(101, 101, 101); background-color: rgb(241, 241, 241); border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(203, 203, 203); border-right-color: rgb(203, 203, 203); border-bottom-color: rgb(203, 203, 203); border-left-color: rgb(203, 203, 203); border-top-left-radius: 3px 3px; border-top-right-radius: 3px 3px; border-bottom-right-radius: 3px 3px; border-bottom-left-radius: 3px 3px; }
+article{ padding-top: 0px; padding-right: 0.625rem; padding-bottom: 0px; padding-left: 0.625rem; margin-bottom: 2em; width: 100%; position: relative; overflow-x: hidden; overflow-y: hidden; }
+.more{ font-size: 0.875rem; }
+.more::before{ content: ›; display: inline; padding-right: 0.25em; }
+footer[role="contentinfo"]{ padding-top: 0.625rem; padding-right: 0.625rem; padding-bottom: 0.625rem; padding-left: 0.625rem; width: 100%; height: auto; color: rgb(50, 50, 50); text-align: right; }
+footer[role="contentinfo"] p{ margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-size: 0.625em; }

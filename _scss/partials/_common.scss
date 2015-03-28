@@ -1,12 +1,19 @@
 /**
  * Common base styles styles
  */
+:root {
+  font-size: large;
+
+  @include responsive(650) {
+    font-size: x-large;
+  }
+}
 
 body {
   width: 100%;
   font: {
     family: $base-font-family;
-    size: large;
+    // size: large;
     style: normal;
     weight: normal;
   }
@@ -17,9 +24,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  @include responsive(650) {
-    font-size: x-large;
-  }
+  // @include responsive(650) {
+    // font-size: x-large;
+  // }
 }
 
 /* ---- Headings ---- */
@@ -38,43 +45,43 @@ h1 {
 h2,
 .post-title {
   font-size: 2em;
-  margin-bottom: 0.75em;
+  margin-bottom: 0.75rem;
 }
 
 h3 {
-  font-size: 1.5em;
+  font-size: 1.5rem;
 }
 
 h4, h5 {
-  margin-bottom: 0.25em;
+  margin-bottom: 0.25rem;
 }
 
 h4 {
-  font-size: 1.25em;
+  font-size: 1.25rem;
 }
 
 h5 {
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 /* ---- Block ---- */
 
 p {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.5rem;
 }
 
 blockquote {
   width: 100%;
-  margin-bottom: 1.5em;
-  padding: .5em;
+  margin-bottom: 1.5rem;
+  padding: .5rem;
   border-top: 3px double $theme-decoration-dark;
   border-bottom: 3px double $theme-decoration-dark;
   color: $theme-font-dark;
-  font-size: 1.25em;
+  font-size: 1.25rem;
   quotes: none;
 
   p {
-    margin-bottom: 0.875em;
+    margin-bottom: $small-font-size;
   }
 
   p:last-of-type {
@@ -83,12 +90,12 @@ blockquote {
 
   span {
     text-align: right;
-    font-size: 0.75em;
+    font-size: 0.75rem;
     display: block;
 
     &:before {
       content: "-";
-      margin-right: 0.25em;
+      margin-right: 0.25rem;
     }
   }
 
@@ -107,12 +114,12 @@ button {
   -webkit-appearance: none;
   background-color: transparent;
   cursor: pointer;
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 
   color: $theme-main;
   border: 1px solid;
   border-radius: 6px;
-  padding: 0.75em;
+  padding: 0.75rem;
   text-align: center;
   @include transition((color, border-color));
 
@@ -132,12 +139,12 @@ hr {
   height: 1px;
   width: 60%;
   background-color: $theme-decoration-dark;
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 
 pre {
-  margin-bottom: 0.5em;
-  padding: 1em;
+  margin-bottom: 0.5rem;
+  padding: 1rem;
   position: relative;
   background-color: #393939;
 }
@@ -149,7 +156,7 @@ code {
   line-height: inherit;
   font: {
     family: Consolas, Monaco, 'Andale Mono', monospace;
-    size: 0.75em;
+    size: 0.75rem;
   }
   white-space: pre;
   -webkit-hyphens: none;
@@ -159,7 +166,7 @@ code {
 
   pre & {
     height: 100%;
-    max-height: 20em;
+    max-height: 20rem;
     display: block;
     color: rgb(255, 255, 255);
     -moz-tab-size: 2;
@@ -171,7 +178,7 @@ code {
   :not(pre) > & {
     color: #393939;
     display: inline;
-    padding: 0.05em 0.2em;
+    padding: 0.05em 0.2rem;
     border-radius: 3px;
     border: 1px solid $theme-decoration-dark;
   }
@@ -206,7 +213,7 @@ img {
 }
 
 kbd {
-  padding: 0.05em 0.2em;
+  padding: 0.05em 0.2rem;
   font-family: monospace;
   border: 1px solid $theme-decoration-dark;
   background-color: $theme-decoration-light;
@@ -225,7 +232,7 @@ abbr[title] {
 .math {
   font: {
     family: Consolas, Monaco, 'Andale Mono', monospace;
-    size: 0.875em;
+    size: $small-font-size;
   }
 }
 
@@ -236,30 +243,30 @@ output {
 /* ---- Lists ---- */
 
 ul, ol {
-  margin-bottom: 2em;
+  margin-bottom: 2rem;
 }
 
   ul {
     list-style: disc outside none;
-    margin-left: 1em;
+    margin-left: 1rem;
   }
 
   ol {
     list-style: decimal outside none;
-    margin-left: 1.5em;
+    margin-left: 1.5rem;
   }
 
     ul li,
     ol li {
-      margin-bottom: .5em;
+      margin-bottom: .5rem;
     }
 
 // Nested list
 li ul,
 li ol {
-  margin-top: 0.5em;
+  margin-top: 0.5rem;
   margin-bottom: 0;
-  padding-left: 1.5em;
+  padding-left: 1.5rem;
 }
 
   li ul {

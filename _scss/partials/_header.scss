@@ -3,11 +3,11 @@
  */
 
 header[role="banner"] {
-  padding: 3em $gutter-spacing;
+  padding: 3rem $gutter-spacing;
 
   & h1,
   & h2 {
-    font-size: 2.6em;
+    font-size: 2.6rem;
     line-height: 1;
     margin-bottom: 0;
   }
@@ -15,12 +15,12 @@ header[role="banner"] {
 
 nav {
   width: 100%;
-  height: 1.5em;
-  margin-top: 0.25em;
-  font-size: 1em;
+  height: 1.5rem;
+  margin-top: 0.25rem;
+  font-size: 1rem;
 
   @include responsive(650) {
-    font-size: 0.875em;
+    font-size: 0.875rem;
   }
 
   & ul {
@@ -35,7 +35,7 @@ nav {
     &:before {
       content: '/';
       display: inline;
-      margin: 0 0.5em;
+      margin: 0 0.5rem;
     }
 
     &:first-of-type:before {

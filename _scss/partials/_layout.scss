@@ -55,7 +55,7 @@ section {
 }
 
 .more {
-  font-size: 0.875em;
+  font-size: $small-font-size;
 
   &:before {
     content: "\203A";
@@ -66,7 +66,7 @@ section {
 
 .note {
   font: {
-    size: 0.875em;
+    size: $small-font-size;
     style: italic;
   }
   padding: 0.5em;
