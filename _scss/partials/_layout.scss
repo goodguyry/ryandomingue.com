@@ -32,7 +32,7 @@ section {
     clear: both;
   }
 
-  @include responsive(700) {
+  @include responsive(675) {
     @include column(1/2);
   }
 }

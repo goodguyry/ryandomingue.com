@@ -1,7 +1,7 @@
 html, body, div, figure, figcaption, img, blockquote, h1, h2, h3, h4, h5, ol, p, pre, ul, li ul, li ol, abbr, a, cite, code, em, kbd, li, span, strike, strong, sub, sup, main, article, aside, footer, header, nav, section { margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 100%; font: inherit; vertical-align: baseline; box-sizing: border-box; }
 main, article, aside, footer, header, nav, section { display: block; }
 :root{ font-size: large; }
-@media only screen and (min-width: 40.625em){
+@media only screen and (min-width: 31.25em){
 :root{ font-size: x-large; }
 }
 body{ width: 100%; font-family: Merriweather, serif; font-style: normal; font-weight: normal; line-height: 1.5; background-color: white; color: rgb(50, 50, 50); -webkit-font-smoothing: antialiased; }

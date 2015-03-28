@@ -4,7 +4,7 @@
 :root {
   font-size: large;
 
-  @include responsive(650) {
+  @include responsive(500) {
     font-size: x-large;
   }
 }
@@ -13,7 +13,6 @@ body {
   width: 100%;
   font: {
     family: $base-font-family;
-    // size: large;
     style: normal;
     weight: normal;
   }
@@ -23,10 +22,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-
-  // @include responsive(650) {
-    // font-size: x-large;
-  // }
 }
 
 /* ---- Headings ---- */
