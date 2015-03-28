@@ -25,7 +25,7 @@ module.exports = function(grunt) {
           filename: '_site/css/base.css',
           outputfile: 'css/_critical.css',
           forceInclude: ['nav'],
-          width: 1200,
+          width: 720,
           height: 800,
           buffer: 800*1024
         }
@@ -36,7 +36,7 @@ module.exports = function(grunt) {
           filename: '_site/css/base.css',
           outputfile: 'css/_critical.post.css',
           forceInclude: ['nav'],
-          width: 1200,
+          width: 720,
           height: 800,
           buffer: 800*1024
         }
@@ -142,8 +142,8 @@ module.exports = function(grunt) {
   grunt.registerTask(
     'perf',
     [
-      'imagemin',
-      // 'criticalcss'
+      // 'imagemin',
+      'criticalcss'
     ]
   );
 
