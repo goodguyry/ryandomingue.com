@@ -2,7 +2,15 @@
  * Common base styles styles
  */
 :root {
-  font-size: large;
+  font-size: small;
+
+  @include responsive(220, min) {
+    font-size: medium;
+  }
+
+  @include responsive(250, min) {
+    font-size: large;
+  }
 
   @include responsive(500, min) {
     font-size: x-large;
