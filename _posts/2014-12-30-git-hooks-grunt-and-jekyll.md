@@ -4,6 +4,14 @@ title: Git Hooks, Grunt and Jekyll on Dreamhost
 excerpt: I recently spent the better part of a day getting Grunt and Jekyll to properly execute via a Git post-receive hook. Here are some notes about getting Node, Grunt and Jekyll running on a shared Dreamhost server.
 description: Some tips for working with Node and Ruby on Dreamhost shared hosting
 code: true
+resources:
+- text: <em>How To Use Git Hooks To Automate Development and Deployment Tasks</em>
+  url: https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks
+- text: An example post-receive Git hook
+  url: https://gist.github.com/goodguyry/60661091c2bb68d9574c
+- text: My Gruntfile
+  url: https://github.com/goodguyry/ryandomingue.com/blob/master/Gruntfile.js
+
 ---
 
 I've been meaning to get myself set up with Git deployment for a while now. What better time than right after a website refresh?
@@ -91,9 +99,3 @@ Re-create the necessary parts of your login environment
 That did the trick. Everything ran as expected. I was very happy to have gotten to the bottom of that.
 
 I hope this helped you (or future me) get past the hurdle of automated deployment with Git, Grunt and Jekyll.
-
-### Related
-
-- [_How To Use Git Hooks To Automate Development and Deployment Tasks_](https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks)
-- [An example post-receive Git hook](https://gist.github.com/goodguyry/60661091c2bb68d9574c)
-- [My Gruntfile](https://github.com/goodguyry/ryandomingue.com/blob/master/Gruntfile.js)

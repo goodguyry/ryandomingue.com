@@ -24,6 +24,15 @@ isPost: true
 
           <hr>
 
+          {% if page.resources %}
+            <h3>{% if page.resources.size < 2 %}Additional resource{% else %}Additional resources{% endif %}</h3>
+            <ul>
+            {% for resource in page.resources %}
+              <li><a href="{{ resource.url }}">{{ resource.text }}</a></li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+
           <p><em>See something that's not quite right? Have a question about something in this post? <a href="{{ "/ryandomingue.com/issues" | prepend: site.github_base_url }}">Open an issue on Github</a> or <a href="http://twitter.com/{{ site.twitter_username }}">let me know on Twitter</a>.</em></p>
 
         </article>

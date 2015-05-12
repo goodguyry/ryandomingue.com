@@ -5,7 +5,11 @@ title: Jekyll Navigation
 excerpt: An exploration of an approach to Jekyll site navigation, with an additional approach for multi-lingual sites.
 description: Exploring Jekyll site navigation options
 code: true
-
+resources:
+- text: Jekyll Documentation - Data Files
+  url: http://jekyllrb.com/docs/datafiles/
+- text: Liquid for Designers
+  url: https://github.com/Shopify/liquid/wiki/Liquid-for-Designers
 ---
 
 
@@ -179,8 +183,3 @@ So the loop essentially says, for items in this list, if the item is not the hom
 The multi-lingual loop
 
 In this post, I introduced a technique for creating site navigation using Jekyll data files and Liquid conditionals and loops. I then showed how I've extended this approach for use in a multi-lingual site I'm building. I hope you've found this exercise helpful.
-
-
-### Additional resources
-
-- [Jekyll Documentation - Data Files](http://jekyllrb.com/docs/datafiles/)
