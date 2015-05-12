@@ -179,11 +179,17 @@ code {
 
   // Inline code
   :not(pre) > & {
+    font-size: 0.90rem;
     color: #393939;
     display: inline;
-    padding: 0.05em 0.2rem;
+    padding: 0 0.15rem;
     border-radius: 3px;
     border: 1px solid $theme-decoration-dark;
+  }
+
+  :not(pre) > a & {
+    font-size: 0.95rem;
+    color: $theme-main;
   }
 
   &.path {

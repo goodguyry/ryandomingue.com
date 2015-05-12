@@ -139,6 +139,33 @@ $purple: rgb(177, 115, 113);
   .p { color: $white; }
 }
 
+// Liquid
+.language-liquid {
+  // punctuation
+  .p, .err { color: $white; }
+  // keyword reserved
+  .kr { color: $orange; }
+  // variable
+  .nv { color: $orange; }
+  // function
+  .nf { color: $orange; }
+  // operator
+  .o { color: $blue; }
+  // string
+  .s2, .s1 { color: $green; }
+  // tag
+  .nt { color: $orange; }
+  // number
+  .mi { color: $blue; }
+}
+
+.language-yaml {
+  // punctuation
+  .p, .pi { color: $white; }
+  // string
+  .s { color: $orange; }
+}
+
 .language-term:before {
   content: '$';
   display: inline-block;
