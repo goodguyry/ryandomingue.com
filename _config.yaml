@@ -11,7 +11,7 @@ port: 8080
 markdown: kramdown
 highlighter: rouge
 url: http://ryandomingue.com
-exclude: [Gruntfile.js, package.json, node_modules, README.md, LICENSE]
+exclude: [Gruntfile.js, package.json, node_modules, README.md, LICENSE, _drafts/README.md]
 timezone: America/Los_Angeles
 
 # sass settings
