@@ -5,7 +5,7 @@ description: Ryan Domingue is a web designer and developer living in Seattle, Wa
 permalink: /about/
 ---
 
-I am a husband, dog father and Seattle transplant. I can be found cheering on [Sounders FC](http://soundersfc.com), playing my guitar or Googling the current topic of conversation just for the fun of it.
+I am a husband, dog father and Seattle transplant. I can be found cheering on [Sounders FC](http://soundersfc.com), playing my guitar, [hoarding GIFs](http://jif.io) or Googling the current topic of conversation.
 
 I work at [Story](http://storyworldwide.com/) as a <abbr title="Content Management System">CMS</abbr>/<abbr title="Quality Assurance">QA</abbr> Specialist, part of a close-knit Creative Technology team based in New York.
 
