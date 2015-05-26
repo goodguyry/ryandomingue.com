@@ -197,6 +197,16 @@ code {
   }
 }
 
+figcaption {
+  text-align: right;
+  font-size: 0.75rem;
+  margin-bottom: 2rem;
+
+  code {
+    font-size: inherit;
+  }
+}
+
 /* ---- Inline ---- */
 
 em { font-style: italic; }

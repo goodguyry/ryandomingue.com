@@ -45,11 +45,12 @@ NVM makes it almost *too* easy to install and update Node. I chose the manual in
 
 Manually installing NVM is as simple as cloning the repo and checking out the latest version:
 
+<figure>
 {% highlight term %}
 git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
 {% endhighlight %}
-
-From the [NVM Readme](https://github.com/creationix/nvm#manual-install)
+<figcaption>From the <a href="https://github.com/creationix/nvm#manual-install">NVM Readme</a></figcaption>
+</figure>
 
 Once that's finished, source the <code class="path">~/.nvm/nvm.sh</code> file in your shell and you can easily manage Node versions. [See their usage docs](https://github.com/creationix/nvm#usage) for more, but what I did was [update my dotfiles](https://github.com/goodguyry/dotfiles/commit/5cd72d0a62779aace5ee444eb1ae8cf0194955f6), test on my laptop and then pull the changes to the server. From there I re-installed my dotfiles and everything was ready to go.
 
@@ -57,19 +58,21 @@ Once that's finished, source the <code class="path">~/.nvm/nvm.sh</code> file in
 
 Installing gems like Jekyll and Rouge was no problem. However, Dreamhost has an older version of Ruby (1.8.7), which meant I was stuck on older versions of the gems. [The Dreamhost RVM docs](http://wiki.dreamhost.com/RVM) helped, but it still wasn't quite working. [This Stack Exchange answer](http://stackoverflow.com/questions/17357777/dreamhost-vps-cant-install-rvm-because-new-to-be-sudoer/17364911#17364911) cleared everything up:
 
+<figure>
 {% highlight term %}
 \curl -L https://get.rvm.io | bash -s -- --autolibs=read-fail
 {% endhighlight %}
-
-Set `autolibs` in the `curl` command &ndash; not after, as the docs suggest.
+<figcaption>Set <code>autolibs</code> in the <code>curl</code> command &ndash; not after, as the docs suggest.</figcaption>
+</figure>
 
 Even with that bit of magic, updating Ruby was unnecessarily difficult. I ended up going with [this suggestion from another Stack Exchange answer](http://stackoverflow.com/questions/15798461/how-do-i-use-rvm-to-install-ruby-on-a-dreamhost-shared-server/19238624#19238624).
 
+<figure>
 {% highlight term %}
 rvm mount -r https://rvm.io/binaries/ubuntu/12.04/x86_64/ruby-2.0.0-p598.tar.bz2 --verify-downloads 1
 {% endhighlight %}
-
-Be sure to substitute your OS and versions if they differ from mine
+<figcaption>Be sure to substitute your OS and versions if they differ from mine</figcaption>
+</figure>
 
 ### Great...
 
@@ -85,6 +88,7 @@ I haven't researched this a whole lot, so forgive me if I don't have this 100% c
 
 So, essentially, what I needed to do was re-create my login environment for the Git hook.
 
+<figure>
 {% highlight bash %}
 #!/bin/bash
 
@@ -93,8 +97,8 @@ source $HOME/.rvm/scripts/rvm
 PATH="$PATH:$HOME/.nvm/v0.10.35/bin"
 PATH="$PATH:$HOME/.rvm/bin"
 {% endhighlight %}
-
-Re-create the necessary parts of your login environment
+<figcaption>Re-create the necessary parts of your login environment</figcaption>
+</figure>
 
 That did the trick. Everything ran as expected. I was very happy to have gotten to the bottom of that.
 
