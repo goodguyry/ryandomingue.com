@@ -44,7 +44,7 @@ Now that the data file is ready, assign the current page&rsquo;s URL to a variab
 
 So as Jekyll iterates through the pages in the site, each page&rsquo;s URL will be captured and used for building the rest of the navigation.
 
-### One Small Problem
+#### One Small Problem
 
 The home page doesn&rsquo;t need the &lsquo;home&rsquo; link, so the loop should skip over the first list item when Jekyll builds the home page. Liquid provides a handy `offset` property, available inside `for` loops, for which this is a perfect use-case.
 

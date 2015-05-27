@@ -74,9 +74,7 @@ rvm mount -r https://rvm.io/binaries/ubuntu/12.04/x86_64/ruby-2.0.0-p598.tar.bz2
 <figcaption>Be sure to substitute your OS and versions if they differ from mine</figcaption>
 </figure>
 
-### Great...
-
-#### But why doesn't my Git hook work?
+### Great. But...
 
 I spent about an hour or so working through my Ruby and Node installation issues and getting everything set up, and basically the rest of my life troubleshooting why my Git hook was telling me Grunt and Jekyll weren't installed.
 
