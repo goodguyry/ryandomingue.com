@@ -17,7 +17,7 @@ timezone: America/Los_Angeles
 # sass settings
 sass:
   sass_dir: _scss
-  style: expanded
+  style: compressed
   precision: 4
 
 # kramdown settings
