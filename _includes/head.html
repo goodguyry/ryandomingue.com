@@ -8,7 +8,7 @@
     <link href='http://fonts.googleapis.com/css?family=Lato:700,700italic' rel='stylesheet' type='text/css'>
   </noscript>
 
-  <style>{% if page.isPost %}{% include critical.post.min.css %}{% else %}{% include critical.min.css %}{% endif %}</style>
+  {% if page.isPost %}{% include critical.post.min.html %}{% else %}{% include critical.min.html %}{% endif %}
 
   <script>
     {% include loadcss.min.js %}

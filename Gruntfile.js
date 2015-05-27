@@ -12,8 +12,8 @@ module.exports = function(grunt) {
       },
       critical: {
         files: {
-          '_includes/critical.min.css': 'css/_critical.css',
-          '_includes/critical.post.min.css': 'css/_critical.post.css'
+          '_includes/critical.min.html': 'css/_critical.css',
+          '_includes/critical.post.min.html': 'css/_critical.post.css'
         }
       }
     },
@@ -73,13 +73,38 @@ module.exports = function(grunt) {
       }
     }
   );
+
+  grunt.registerTask(
+    'criticalwrap',
+    'Wrap minified CriticalCSS files in <style> tags.',
+    function() {
+      var files = grunt.file.expand('_includes/critical.*.html'),
+          content = '';
+
+      if (files.length > 0) {
+        for (var f in files) {
+          // Read the file
+          content = grunt.file.read(files[f]);
+          // Write changes back to file
+          grunt.file.write(files[f], '<style>'+content+'</style>');
+          // Feedback
+          grunt.log.write('File "' + files[f] + '" updated.\n');
+        }
+      } else {
+        // Fail if no matches are found
+        grunt.verbose.error('No matches found');
+      }
+    }
+  );
+
   grunt.registerTask(
     'default',
     [
       // 'imagemin',
       'criticalcss',
       'specialchar',
-      'cssmin'
+      'cssmin',
+      'criticalwrap'
     ]
   );
 
