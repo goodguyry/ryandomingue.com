@@ -12,8 +12,6 @@
 
 $base-font-family: 'Merriweather', serif;
 $heading-font-family: 'Lato', sans-serif;
-$base-font-size: 16;
-$small-font-size: 0.875rem;
 
 /**
  * Columns
@@ -28,7 +26,7 @@ $number-of-columns: 12;
 $max-grid-width: ($column-width * $number-of-columns) + ($gutter-width * $number-of-columns);
 
 // Calculate the length of the gutters
-$gutter-spacing: (($gutter-width/2)/$base-font-size) + rem;
+$gutter-spacing: (($gutter-width/2)/16) + rem;
 
 /**
  * Colors
@@ -52,6 +50,15 @@ $theme-font-light: lighten($theme-font-dark, 20%); // Asides and font decoration
 $theme-decoration-light: lighten($theme-font-dark, 75%); // Background color for asides
 $theme-decoration-dark: lighten($theme-font-dark, 60%); // Horizontal rules
 
+/**
+ * Misc.
+ */
+
+$line-height: 1.5;
+$small-font-size: 0.875rem;
+
+$vertical-rhythm: $line-height + rem;
+$double-vertical-rhythm: ($line-height * 2) + rem;
 
 /******************************************
  * Mixins
@@ -78,7 +85,7 @@ $theme-decoration-dark: lighten($theme-font-dark, 60%); // Horizontal rules
  * @include responsive(px) { ... }
  */
 @mixin responsive($px, $mm: 'min') {
-  $width: ($px/$base-font-size) + em;
+  $width: ($px/16) + em;
   @media only screen and (#{$mm}-width: ($width)) { @content; }
 }
 

@@ -24,7 +24,7 @@ body {
     style: normal;
     weight: normal;
   }
-  line-height: 1.5;
+  line-height: $line-height;
   background-color: $theme-base;
   color: $theme-font-dark;
   -webkit-font-smoothing: antialiased;
@@ -39,6 +39,7 @@ h1, h2, h3, h4, h5 {
     family: $heading-font-family;
     weight: bold;
   }
+  line-height: 1;
 }
 
 h1 {
@@ -48,7 +49,7 @@ h1 {
 h2,
 .post-title {
   font-size: 2em;
-  margin-bottom: 0.75rem;
+  margin-bottom: $vertical-rhythm;
 }
 
 h3 {
@@ -70,12 +71,12 @@ h5 {
 /* ---- Block ---- */
 
 p {
-  margin-bottom: 1.5rem;
+  margin-bottom: $vertical-rhythm;
 }
 
 blockquote {
   width: 100%;
-  margin-bottom: 1.5rem;
+  margin-bottom: $vertical-rhythm;
   padding: .5rem;
   border-top: 3px double $theme-decoration-dark;
   border-bottom: 3px double $theme-decoration-dark;
@@ -142,11 +143,10 @@ hr {
   height: 1px;
   width: 60%;
   background-color: $theme-decoration-dark;
-  margin-bottom: 2rem;
+  margin-bottom: $double-vertical-rhythm;
 }
 
 pre {
-  margin-bottom: 0.5rem;
   padding: 1rem;
   position: relative;
   background-color: #393939;
@@ -199,8 +199,8 @@ code {
 
 figcaption {
   text-align: right;
-  font-size: 0.75rem;
-  margin-bottom: 2rem;
+  font-size: 0.7rem;
+  margin-bottom: $vertical-rhythm;
 
   code {
     font-size: inherit;
@@ -262,7 +262,7 @@ output {
 /* ---- Lists ---- */
 
 ul, ol {
-  margin-bottom: 2rem;
+  margin-bottom: $vertical-rhythm;
 }
 
   ul {
@@ -275,15 +275,9 @@ ul, ol {
     margin-left: 1.5rem;
   }
 
-    ul li,
-    ol li {
-      margin-bottom: .5rem;
-    }
-
 // Nested list
 li ul,
 li ol {
-  margin-top: 0.5rem;
   margin-bottom: 0;
   padding-left: 1.5rem;
 }
