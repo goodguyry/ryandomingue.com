@@ -49,10 +49,36 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.registerTask(
+    'specialchar',
+    'Replace special characters in css/_critical.css due to a bug in either PhantomJS or CriticalCSS.',
+    function() {
+      var pattern = /[content\s*:\s*](›)/,
+          // Dancing around octal restriction...
+          replacement = '"\\'+'203A"',
+          file = grunt.file.read('css/_critical.css');
+
+      // Test for the special character
+      var extMatch = file.match(pattern);
+
+      if (extMatch && extMatch.length > 1) {
+        // We have a match, so proceed
+        file = file.replace(extMatch[1], replacement);
+        // Write changes back to css/_critical.css
+        grunt.file.write('css/_critical.css', file);
+        // A little feedback
+        grunt.log.write('Critical CSS special character replaced.\n');
+      } else {
+        // Fail if no matches are found
+        grunt.verbose.error('No matches found');
+      }
+    }
+  );
+  grunt.registerTask(
     'default',
     [
       // 'imagemin',
       'criticalcss',
+      'specialchar',
       'cssmin'
     ]
   );
