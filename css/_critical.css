@@ -10,7 +10,7 @@ main, article, aside, footer, header, nav, section { display: block; }
 @media only screen and (min-width: 31.25em){
 :root{ font-size: x-large; }
 }
-body{ width: 100%; font-family: Merriweather, serif; font-style: normal; font-weight: normal; line-height: 1.5; background-color: white; color: rgb(50, 50, 50); -webkit-font-smoothing: antialiased; }
+body{ width: 100%; font-family: Merriweather, serif; font-style: normal; font-weight: normal; line-height: 1.5; background-color: rgb(255, 255, 255); color: rgb(50, 50, 50); -webkit-font-smoothing: antialiased; }
 h1, h2, h3{ font-family: Lato, sans-serif; font-weight: bold; line-height: 1; }
 h2{ font-size: 2em; margin-bottom: 1.5rem; }
 h3{ font-size: 1.5rem; }
@@ -45,3 +45,5 @@ section{ margin-bottom: 1.5rem; }
 .post-list h3{ margin-bottom: 0px; }
 .more{ font-size: 0.875rem; }
 .more::before{ content: ›; display: inline; padding-right: 0.25em; }
+footer[role="contentinfo"] { padding-top: 0.625rem; padding-right: 0.625rem; padding-bottom: 0.625rem; padding-left: 0.625rem; width: 100%; height: auto; color: rgb(50, 50, 50); text-align: right; }
+footer[role="contentinfo"] p { margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-size: 0.625em; }
