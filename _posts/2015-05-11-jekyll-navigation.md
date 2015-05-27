@@ -17,7 +17,7 @@ In this post, I'll introduce a technique for creating navigation for a Jekyll-po
 
 In these examples, I&rsquo;ll use data files to hold the list of navigation items, then a [Liquid `for` loop](https://github.com/Shopify/liquid/wiki/Liquid-for-Designers#for-loops) to build the navigation list. [Jekyll data files](http://jekyllrb.com/docs/datafiles/) hold additional data for Jekyll to load while generating your site. They&rsquo;re a great place to store strings, common URLs, and more.
 
-## The Basic Nav
+### The Basic Nav
 
 First, create a list of items in <code class="path">_data/nav.yaml</code>, each with &lsquo;text&rsquo; and &lsquo;url&rsquo; properties to hold the necessary information.
 
