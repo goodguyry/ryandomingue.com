@@ -5,8 +5,8 @@
 header[role="banner"] {
   padding: $double-vertical-rhythm $gutter-spacing;
 
-  & h1,
-  & h2 {
+  h1,
+  h2 {
     font-size: 2.6rem;
     margin-bottom: 0;
   }
@@ -21,13 +21,13 @@ nav {
     font-size: 0.875rem;
   }
 
-  & ul {
+  ul {
     margin-bottom: 0;
     margin-left: 0;
     list-style-type: none;
   }
 
-  & li {
+  li {
     float: left;
 
     &:before {
