@@ -13,7 +13,7 @@ main, article, aside, footer, header, nav, section { display: block; }
 body{ width: 100%; font-family: Merriweather, serif; font-style: normal; font-weight: normal; line-height: 1.5; background-color: rgb(255, 255, 255); color: rgb(50, 50, 50); -webkit-font-smoothing: antialiased; }
 h1, h2, h3{ font-family: Lato, sans-serif; font-weight: bold; line-height: 1; }
 h2, .post-title{ font-size: 2em; margin-bottom: 1.5rem; }
-h3{ font-size: 1.5rem; }
+h3{ font-size: 1.5rem; margin-bottom: 0.25rem; }
 p{ margin-bottom: 1.5rem; }
 pre{ padding-top: 1rem; padding-right: 1rem; padding-bottom: 1rem; padding-left: 1rem; position: relative; background-color: rgb(57, 57, 57); }
 code{ overflow-x: auto; overflow-y: auto; max-width: 100%; position: relative; line-height: inherit; font-family: Consolas, Monaco, 'Andale Mono', monospace; font-size: 0.75rem; white-space: pre; -webkit-hyphens: none; }
