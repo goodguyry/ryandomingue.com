@@ -36,6 +36,8 @@
   {% if page.code %}<noscript><link rel="stylesheet" href="{{ '/css/code.css' }}"></noscript>{% endif %}
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.url }}">
 
+  {% if page.picturefill %}<script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/2.3.1/picturefill.min.js" async></script>{% endif %}
+
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="initial-scale=1.0, width=device-width, minimum-scale=1.0, user-scalable=1" />
