@@ -20,7 +20,7 @@
 
   <title>{% if page.title %}{{ page.title | append: " | ryandomingue.com" }}{% else %}{{ site.title }}{% endif %}</title>
 
-  <meta property="og:image" content="{% if page.mainImage %}{{ page.mainImage }}{% else %}/images/ryandomingue-bw.jpg{% endif %}">
+  <meta property="og:image" content="{% if page.mainImage %}{{ page.mainImage | prepend: site.url }}{% else %}{{ "/images/ryandomingue-bw.jpg" | prepend: site.url }}{% endif %}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.url }}">
   <meta property="og:site_name" content="Ryan Domingue dot com">
