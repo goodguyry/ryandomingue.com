@@ -23,7 +23,7 @@ After a long night of DJs and after-hours clubs, we finally headed home around 7
 
 The next time I saw Pinky, I was sitting in Loren's living room, chatting with her roommates while she finished getting ready for our first official date. Pinky was *very* happy to be meeting someone new, a trait that would come to define her.
 
-Pinky never met anyone she didn’t like. Over the years, our friends and family came to know and love her for her social adaptability and almost super-canine intelligence. She greeted all guests with a toy, and would sing on command, if she weren’t already singing out of pure excitement at whatever was going on.
+Pinky never met anyone she didn’t like. Over the years, our friends and family came to know and love her for her social adaptability and almost super-canine intelligence. She greeted all guests with a toy, and would [sing on command](https://vine.co/v/hmZvl7g7Ewb), if she weren’t already singing out of pure excitement at whatever was going on.
 
 She was Chief Grocery Bag Inspector, insisting upon sticking her nose in every bag we brought in, to which we happily obliged. She was incredibly obedient, and always willing to sit still while we dressed her up in swimming gear or soccer jerseys.
 
