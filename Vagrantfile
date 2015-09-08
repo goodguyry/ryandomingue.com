@@ -16,6 +16,7 @@ ip_address = settings['strings']['ip_address']
 
 Vagrant.configure(2) do |config|
   config.vm.box = "dreamhost"
+  config.vm.box_url = "http://ryandomingue.com/public/dreamhost.box"
 
   config.vm.network :forwarded_port, guest: guest_port, host: host_port, auto_correct: true
 
