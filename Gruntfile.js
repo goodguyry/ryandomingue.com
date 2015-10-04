@@ -3,44 +3,59 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
-    pkg: grunt.file.readJSON('package.json'),
+    sass: {
+      all: {
+        options: {
+          style: 'expanded'
+        },
+        files: {
+          'temp/main.css': 'src/scss/main.scss'
+        }
+      }
+    },
 
     cssmin: {
       options: {
         report: 'min',
         keepSpecialComments: 0
       },
-      critical: {
+      all: {
         files: {
-          '_includes/critical.min.html': 'css/_critical.css',
-          '_includes/critical.post.min.html': 'css/_critical.post.css'
+          'temp/main.min.css': 'temp/main.css'
         }
       }
     },
 
-    criticalcss: {
-      home: {
-        options: {
-          url: 'http://ryandomingue.dev',
-          filename: '_site/css/base.css',
-          outputfile: 'css/_critical.css',
-          forceInclude: ['nav', 'footer'],
-          width: 720,
-          height: 800,
-          buffer: 800*1024
-        }
-      },
-      post: {
-        options: {
-          url: 'http://ryandomingue.dev/thoughts-and-ramblings/multi-tenant-wordpress.html',
-          filename: '_site/css/base.css',
-          outputfile: 'css/_critical.post.css',
-          forceInclude: ['nav'],
-          width: 720,
-          height: 800,
-          buffer: 800*1024
-        }
+    copy: {
+      rootFiles: {
+        files: [{
+          expand: true,
+          cwd: 'src/',
+          src: ['favicon.{ico,gif}', 'errors.php'],
+          dest: 'web/'
+        }]
       }
+    },
+
+    imagemin: {
+      all: {
+        files: [{
+          expand: true,
+          cwd: 'src/images/',
+          src: ['**/*.{png,jpg,gif,ico}'],
+          dest: 'web/images/'
+        }]
+      }
+    },
+
+    watch: {
+      sass: {
+        files: ['src/**/*.scss'],
+        tasks: ['sass', 'cssmin', 'insertCSS'],
+        options: {
+          spawn: false,
+        },
+      },
     },
 
   });
@@ -49,50 +64,26 @@ module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
   grunt.registerTask(
-    'specialchar',
-    'Replace special characters in css/_critical.css due to a bug in either PhantomJS or CriticalCSS.',
+    'insertCSS',
+    'Insert the minified CSS into the HTML head',
     function() {
-      var pattern = /[content\s*:\s*](›)/,
-          // Dancing around octal restriction...
-          replacement = '"\\'+'203A"',
-          file = grunt.file.read('css/_critical.css');
+      var pattern = /\/\*\s+?insertCSS\s+?\*\//,
+          htmlFile = grunt.file.read('src/index.html'),
+          cssFile = grunt.file.read('temp/main.min.css');
 
       // Test for the special character
-      var extMatch = file.match(pattern);
-
-      if (extMatch && extMatch.length > 1) {
+      if (pattern.test(htmlFile)) {
         // We have a match, so proceed
-        file = file.replace(extMatch[1], replacement);
+        var insertMatch = htmlFile.match(pattern);
+        htmlFile = htmlFile.replace(insertMatch[0], cssFile);
         // Write changes back to css/_critical.css
-        grunt.file.write('css/_critical.css', file);
+        grunt.file.write('web/index.html', htmlFile);
         // A little feedback
-        grunt.log.write('Critical CSS special character replaced.\n');
+        grunt.log.write('CSS inserted\n');
+        grunt.file.delete('temp');
       } else {
         // Fail if no matches are found
-        grunt.verbose.error('No matches found');
-      }
-    }
-  );
-
-  grunt.registerTask(
-    'criticalwrap',
-    'Wrap minified CriticalCSS files in <style> tags.',
-    function() {
-      var files = grunt.file.expand('_includes/critical.*.html'),
-          content = '';
-
-      if (files.length > 0) {
-        for (var f in files) {
-          // Read the file
-          content = grunt.file.read(files[f]);
-          // Write changes back to file
-          grunt.file.write(files[f], '<style>'+content+'</style>');
-          // Feedback
-          grunt.log.write('File "' + files[f] + '" updated.\n');
-        }
-      } else {
-        // Fail if no matches are found
-        grunt.verbose.error('No matches found');
+        grunt.verbose.error('"<!-- insertCSS -->" not found');
       }
     }
   );
@@ -100,12 +91,13 @@ module.exports = function(grunt) {
   grunt.registerTask(
     'default',
     [
-      // 'imagemin',
-      'criticalcss',
-      'specialchar',
+      'sass',
       'cssmin',
-      'criticalwrap'
+      'insertCSS',
+      'imagemin',
+      'copy'
     ]
   );
 
 };
+

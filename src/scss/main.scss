@@ -1,0 +1,128 @@
+$font-family: 'Merriweather', serif;
+$theme-font-color: rgb(163, 163, 163);
+$theme-color: rgb(42, 143, 159);
+$theme-base: rgb(255, 255, 255);
+
+/**
+ * Simple media query
+ * Takes a pixel length, converts it to ems and adds the passed style declarations
+ * Media query condition is always min-width
+ * @param $px The pixel length to be converted to ems
+ *
+ * @include responsive(px) { ... }
+ */
+@mixin responsive($px, $mm: 'min') {
+  $width: ($px/16) + em;
+  @media only screen and (#{$mm}-width: ($width)) { @content; }
+}
+
+html, body, main, h1, nav, ul, li, a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+main, nav {
+  display: block;
+}
+
+body {
+  font-size: medium;
+  width: 100%;
+  font: {
+    family: $font-family;
+    style: normal;
+    weight: normal;
+  }
+  line-height: 1.2;
+  background-color: $theme-base;
+  color: $theme-font-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeSpeed;
+
+  @include responsive(600) {
+    font-size: large;
+  }
+}
+
+main {
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  -webkit-transform: translateY(-50%);
+
+  @include responsive(600) {
+    left: 10%;
+  }
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+
+  @include responsive(290) {
+    font-size: 3em;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin: 0.5em 0;
+
+  @include responsive(288) {
+    float: left;
+    width: 45%;
+
+    &:first-child,
+    &:nth-child(3) {
+      margin-left: 0;
+    }
+
+    &:first-child a,
+    &:nth-child(3) a {
+      padding-left: 0;
+    }
+  }
+
+  @include responsive(450) {
+    width: initial;
+    margin: 0.5em 1em;
+
+    &:nth-child(3) {
+      margin-left: 1.5em;
+    }
+
+    &:nth-child(3) a {
+      padding-left: 0.5em;
+    }
+  }
+}
+
+a {
+  color: $theme-color;
+  text-decoration: none;
+  padding: 0.5em 0.5em 0.5em 0;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+  }
+
+  @include responsive(288) {
+    padding: 0.5em;
+  }
+}

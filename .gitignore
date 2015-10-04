@@ -1,4 +1,4 @@
 .htaccess
-_site/
-_temp/
+web/
+temp/
 _env
