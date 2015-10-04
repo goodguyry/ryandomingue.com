@@ -1,0 +1,117 @@
+html, body, main, h1, ul, a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+main, nav {
+  display: block;
+}
+
+body {
+  font-size: medium;
+  width: 100%;
+  font-family: 'Merriweather', serif;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.2;
+  background-color: rgb(255, 255, 255);
+  color: rgb(163, 163, 163);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media screen and (min-width: 37.5em) {
+  body {
+    font-size: large;
+  }
+}
+
+main {
+  position: absolute;
+  top: 50%;
+  left: 1em;
+  -webkit-transform: translateY(-50%);
+}
+
+@media screen and (min-width: 37.5em) {
+  main {
+    left: 10%;
+  }
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 18.125em) {
+  h1 {
+    font-size: 3em;
+  }
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin: 0.5em 0;
+}
+
+a {
+  color: rgb(42, 143, 159);
+  text-decoration: none;
+  padding: 0.5em 0.5em 0.5em 0;
+}
+
+a:hover,
+a:focus,
+a:active {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 18.125em) {
+  li {
+    float: left;
+    width: 45%;
+  }
+
+  li:first-child,
+  li:nth-child(3) {
+    margin-left: 0;
+  }
+
+  a {
+    padding: 0.5em;
+  }
+
+  li:first-child a,
+  li:nth-child(3) a {
+    padding-left: 0;
+  }
+}
+
+@media screen and (min-width: 28.125em) {
+  li {
+    width: initial;
+    margin: 0.5em 1em;
+  }
+
+  li:nth-child(3) {
+    margin-left: 1.5em;
+  }
+
+  li:nth-child(3) a {
+    padding-left: 0.5em;
+  }
+}
