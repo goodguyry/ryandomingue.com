@@ -21,7 +21,14 @@ module.exports = function(grunt) {
       },
       all: {
         files: {
-          'temp/main.min.css': 'temp/main.css',
+          'temp/main.min.css': 'temp/main.css'
+        }
+      }
+    },
+
+    uglify: {
+      loadCSS: {
+        files: {
           'temp/loadCSS.min.js': '_loadCSS/loadCSS.js'
         }
       }
@@ -66,25 +73,46 @@ module.exports = function(grunt) {
 
   grunt.registerTask(
     'insertCSS',
-    'Insert the minified CSS into the HTML head',
+    'Insert the minified CSS and loadCSS into the HTML head',
     function() {
-      var pattern = /\/\*\s+?insertCSS\s+?\*\//,
+      var cssPattern = /\/\*\s+?insertCSS\s+?\*\//,
+          loadCSSPattern = /<![-]{2}\s+?loadCSS\s+?[-]{2}>/,
           htmlFile = grunt.file.read('src/index.html'),
-          cssFile = grunt.file.read('temp/main.min.css');
+          cssFile = grunt.file.read('temp/main.min.css'),
+          loadCSS = grunt.file.read('temp/loadCSS.min.js'),
+          script = [
+            '<script>',
+            loadCSS,
+            'loadCSS( "http://fonts.googleapis.com/css?family=Merriweather:400,700" );',
+            '</script>'
+          ];
 
-      // Test for the special character
-      if (pattern.test(htmlFile)) {
+      // Test for the insertCSS placeholder
+      if (cssPattern.test(htmlFile)) {
         // We have a match, so proceed
-        var insertMatch = htmlFile.match(pattern);
+        var insertMatch = htmlFile.match(cssPattern);
         htmlFile = htmlFile.replace(insertMatch[0], cssFile);
-        // Write changes back to css/_critical.css
-        grunt.file.write('web/index.html', htmlFile);
         // A little feedback
         grunt.log.write('CSS inserted\n');
       } else {
         // Fail if no matches are found
-        grunt.verbose.error('"<!-- insertCSS -->" not found');
+        grunt.verbose.error('"/* insertCSS */" not found');
       }
+
+      // Test for the loadCSSplaceholder
+      if (loadCSSPattern.test(htmlFile)) {
+        // We have a match, so proceed
+        var loadMatch = htmlFile.match(loadCSSPattern);
+        htmlFile = htmlFile.replace(loadMatch[0], script.join(''));
+        // A little feedback
+        grunt.log.write('loadCSS inserted\n');
+      } else {
+        // Fail if no matches are found
+        grunt.verbose.error('"<!-- loadCSS -->" not found');
+      }
+
+      // Write changes back to css/_critical.css
+      grunt.file.write('web/index.html', htmlFile);
     }
   );
 
@@ -104,6 +132,7 @@ module.exports = function(grunt) {
     [
       'sass',
       'cssmin',
+      'uglify',
       'insertCSS',
       'imagemin',
       'copy',
