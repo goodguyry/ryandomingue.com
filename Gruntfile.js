@@ -21,7 +21,8 @@ module.exports = function(grunt) {
       },
       all: {
         files: {
-          'temp/main.min.css': 'temp/main.css'
+          'temp/main.min.css': 'temp/main.css',
+          'temp/loadCSS.min.js': '_loadCSS/loadCSS.js'
         }
       }
     },
@@ -80,10 +81,20 @@ module.exports = function(grunt) {
         grunt.file.write('web/index.html', htmlFile);
         // A little feedback
         grunt.log.write('CSS inserted\n');
-        grunt.file.delete('temp');
       } else {
         // Fail if no matches are found
         grunt.verbose.error('"<!-- insertCSS -->" not found');
+      }
+    }
+  );
+
+  grunt.registerTask(
+    'clean',
+    'Remove temporary directories and files.',
+    function() {
+      if (grunt.file.exists('temp')) {
+        grunt.file.delete('temp');
+        grunt.log.write('temp/ removed.\n');
       }
     }
   );
@@ -95,7 +106,8 @@ module.exports = function(grunt) {
       'cssmin',
       'insertCSS',
       'imagemin',
-      'copy'
+      'copy',
+      'clean'
     ]
   );
 
