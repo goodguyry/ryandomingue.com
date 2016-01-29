@@ -13,10 +13,11 @@ host_port = settings['strings']['host_port']
 vm_name = settings['strings']['vm_name']
 vhost = settings['strings']['vhost']
 ip_address = settings['strings']['ip_address']
+username = settings['strings']['username']
 
 Vagrant.configure(2) do |config|
-  config.vm.box = "dreamhost"
-  config.vm.box_url = "http://ryandomingue.com/public/dreamhost.box"
+  config.vm.box = "goodguyry/dreambox"
+  config.vm.box_url = "https://atlas.hashicorp.com/goodguyry/boxes/dreambox"
 
   config.vm.network :forwarded_port, guest: guest_port, host: host_port, auto_correct: true
 
@@ -27,8 +28,25 @@ Vagrant.configure(2) do |config|
     vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
 
-  config.vm.provision :shell, path: "_env/user.sh"
+  # Start bash as a non-login shell
+  # This gets rid of the annoying "stdin: is not a tty"
+  config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
 
-  config.vm.hostname = vhost
-  config.vm.network :private_network, ip: ip_address
+  # Environment variables for automating user_setup
+  user_vars = {
+    "DREAMBOX_USER_NAME" => username,
+    "DREAMBOX_SITE_ROOT" => vm_name,
+    "DREAMBOX_PROJECT_DIR" => "/#{local_dir}"
+  }
+
+  # Runs user_setup
+  config.vm.provision "shell",
+    inline: "/bin/bash /usr/local/bin/user_setup",
+    # Pass user_setup ENV variables to this script
+    :env => user_vars
+
+  config.vm.define vm_name do |node|
+    node.vm.hostname = vhost
+    node.vm.network :private_network, ip: ip_address
+  end
 end
